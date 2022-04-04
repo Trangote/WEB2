@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Tachstudio</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"/>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light background fixed-top">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          (click)="clicked.toggle()"
+          aria-controls="clicked"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div
+          mdbCollapse
+          #clicked="mdbCollapse"
+          class="collapse navbar-collapse"
+          id="clicked">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link text-white" aria-current="page" href="#">Trang chủ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Máy ảnh</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Studio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Album</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Blog</a>
+            </li>
+          </ul>
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqqzbqvc5I97lDl9rOHRND38E1BmwB-Gm6-ehgS8fIoseQSWbAU0AiRCauSB5b9ULGmQYGu5BRe34Ul4EQ-N_tK9eazVTx_GHTtXF1p4W33mf__AUb1qZ6SuWXnrz9sKQjKEhVziAmiTaAjelZnfyk9N2-VDaynMyC88NVLieWx-HFc4nhng_OOe6A/s1600/profile.png" class="rounded-circle" style="height: 30px; width: 30px;">
+        </div>
+      </div>
+    </nav>
+  </header> 
+  <app-root></app-root>
+
+  <footer class="w-100 py-4 flex-shrink-0 background">
+    <div class="container py-4">
+      <div class="row gy-4 gx-5">
+        <div class="col-lg-4 col-md-6">
+          <h5 class="text-white">Tách Studio</h5>
+          <p class="small text-muted">Tách Studio là một cơ sở cho thuê máy ảnh và dịch vụ chụp ảnh, cung cấp đa dạng loại hình dịch vụ giúp khách hàng có thể dễ dàng tìm kiếm sản phẩm, dịch vụ chụp ảnh mà mình mong muốn.</p>
+          <!-- <p class="small text-muted">Trường Đại học Kinh tế - Luật<br>
+            Số 669 Đường Quốc lộ 1, Khu phố 3, Phường Linh Xuân, TP. Thủ Đức, TP. Hồ Chí Minh<br>
+            Email: doanhoi@uel.edu.vn Điện thoại: 083 7244555 (Ext 6391)</p> -->
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="text-white mb-3">Liên kết nhanh</h5>
+          <ul class="list-unstyled text-muted">
+            <li class="small"><a href="#">Trang chủ</a></li>
+            <li class="small"><a routerLink="">Máy ảnh</a></li>
+            <li class="small"><a routerLink="">Studio</a></li>
+            <li class="small"><a routerLink="">Album</a></li>
+            <li class="small"><a routerLink="">Blog</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h5 class="text-white mb-3">Liên hệ</h5>
+          <ul class="list-unstyled text-muted">
+            <li class="small d-flex align-items-center">
+              <i class="fa-solid fa-house"></i>
+              <div>&nbsp;UEL,Tp.Thủ Đức</div>
+            </li>
+            <li class="small d-flex align-items-center">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <div>&nbsp;tach@gmail.com</div>
+            </li>
+            <li class="small d-flex align-items-center">
+              <i class="fa-solid fa-phone"></i>
+              <div>&nbsp;0235126789</div>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="text-white mb-3">Theo dõi Tách</h5>
+          <ul class="list-unstyled text-muted">
+            <li class="d-inline mr-4">
+              <i class="fab fa-facebook-f fa-2xl"></i>
+            </li>
+            <li class="d-inline mr-4">
+              <i class="fab fa-instagram fa-2xl"></i>
+            </li>
+            <li class="d-inline">
+              <i class="fa-brands fa-youtube fa-2xl"></i>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mt-5 pt-4 border-top bg-dark">
+      <div class="col-md-6 col-lg-8 text-center" style="margin: auto">
+        <p class="small text-muted mb-0 copyright">&copy; Bản quyền. <a class="text-primary" href="#">Đồ án môn Web2 của Nhóm 2</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
