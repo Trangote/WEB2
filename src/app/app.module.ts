@@ -8,6 +8,7 @@ import { TaikhoanCanhanComponent } from './taikhoan-canhan/taikhoan-canhan.compo
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     KhuyenmaiComponent,
     ThongbaoComponent,
     TaikhoanCanhanComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
