@@ -9,6 +9,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomepageComponent } from './homepage/homepage.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     ThongbaoComponent,
     TaikhoanCanhanComponent,
     PageNotFoundComponent,
-    HomepageComponent
+    HomepageComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

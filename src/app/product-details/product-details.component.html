@@ -1,0 +1,121 @@
+<div class="p-5">
+  <div class="d-flex justify-content-center flex-wrap">
+    <div
+      id="carouselExampleControls"
+      class="carousel slide text-center col-12 col-md text-md-left"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div
+          class="carousel-item active"
+          *ngFor="let p of test.image; let i = index"
+          [ngClass]="{ active: i == 0 }"
+        >
+          <img src="{{ p }}" class="d-block w-100" />
+        </div>
+        <button
+          class="carousel-control-prev"
+          data-bs-target="#carouselExampleControls"
+          type="button"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          data-bs-target="#carouselExampleControls"
+          type="button"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="ms-3 text-center col-12 col-md d-md-flex align-items-start flex-column"
+      *ngFor="let p of product"
+    >
+      <h5 class="mb-3">{{ p.name }}</h5>
+      <p class="mb-1">
+        Giá thuê:
+        <span class="text-danger fw-bold">{{ p.price }} VNĐ/ngày</span>
+      </p>
+      <p *ngIf="productCamera">
+        Số lượng:
+        <button
+          style="
+            width: 30px;
+            border: 2px solid #a7a7a7;
+            background-color: #a7a7a7;
+          "
+          class="rounded text-white fw-bold"
+        >
+          -
+        </button>
+        <input
+          type="text"
+          style="width: 30px; border: 2px solid #a7a7a7"
+          readonly
+          value="1"
+          class="text-center rounded"
+        />
+        <button
+          style="
+            width: 30px;
+            border: 2px solid #a7a7a7;
+            background-color: #a7a7a7;
+          "
+          class="rounded text-white fw-bold"
+        >
+          +
+        </button>
+      </p>
+      <button class="btn btn-warning fw-bold text-white mt-2">Đặt thuê</button>
+    </div>
+  </div>
+  <div class="mt-5">
+    <h5>Tính năng thông số kỹ thuật</h5>
+    <hr style="width: 300px" />
+    <div
+      *ngFor="let p of product"
+      class="d-flex flex-wrap justify-content-center"
+    >
+      <div>
+        <img src="{{ p.imgfeature }}" class="me-5 mb-3 pro-img-detail" />
+      </div>
+      <div class="col-xs-10 col-sm-10 col-lg-5">
+        <h5 class="mb-3">Đặc điểm sản phẩm</h5>
+        <div>
+          <p>Nhà sản xuất: {{ p.brand }}</p>
+          <p>Loại máy ảnh: {{ p.type }}</p>
+          <p>Xuất xứ: {{ p.origin }}</p>
+          <p>Model: {{ p.model }}</p>
+          <p>{{ p.details }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4">
+    <h5>Sản phẩm tương tự</h5>
+    <hr style="width: 300px" />
+    <div class="d-flex flex-wrap align-items-center justify-content-center">
+      <div
+        class="card me-sm-5 mb-3 img-hover"
+        style="width: 15rem"
+        *ngFor="let p of products"
+      >
+        <img class="card-img-top mx-auto d-block" src="{{ p.image }}" />
+        <div class="card-body">
+          <p class="card-text text-center fw-bold">{{ p.name }}</p>
+          <p class="text-center text-secondary">
+            {{ p.brand }},{{ p.origin }} <br />
+            Phù hợp chụp {{ p.style }}
+          </p>
+          <p class="text-center text-warning fw-bold">{{ p.price }} VNĐ/ngày</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
