@@ -10,6 +10,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { TachStudioComponent } from './tach-studio/tach-studio.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     TaikhoanCanhanComponent,
     PageNotFoundComponent,
     HomepageComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    TachStudioComponent
   ],
   imports: [
     BrowserModule,
