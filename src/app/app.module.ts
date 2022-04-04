@@ -11,6 +11,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { TachStudioComponent } from './tach-studio/tach-studio.component';
+import { BlogAllPostComponent } from './blog-all-post/blog-all-post.component';
+import { BlogDetailComponent } from './blog-detail/blog-detail.component';
+import { BlogGtComponent } from './blog-gt/blog-gt.component';
+import { DangKyComponent } from './dang-ky/dang-ky.component';
+import { DangNhapComponent } from './dang-nhap/dang-nhap.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,12 @@ import { TachStudioComponent } from './tach-studio/tach-studio.component';
     PageNotFoundComponent,
     HomepageComponent,
     ProductDetailsComponent,
-    TachStudioComponent
+    TachStudioComponent,
+    BlogAllPostComponent,
+    BlogDetailComponent,
+    BlogGtComponent,
+    DangKyComponent,
+    DangNhapComponent
   ],
   imports: [
     BrowserModule,

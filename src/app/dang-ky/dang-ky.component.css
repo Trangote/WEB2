@@ -1,0 +1,51 @@
+@media only screen and (max-width: 390px) {
+    .dangKy__container {
+      border: solid 1px rgb(192, 191, 191);
+      width: 350px !important;
+    }
+  
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .dangKy__bg-img {
+      width: 100%;
+    }
+  
+    .dangKy__right {
+      width: 80%;
+    }
+  }
+  
+  @media only screen and (min-width: 600px) {
+    .dangKy__bg-img {
+      width: 100%;
+    }
+  
+    .dangKy__right {
+      width: 70%;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .dangKy__container {
+      border: solid 1px rgb(192, 191, 191);
+      width: 600px !important;
+    }
+  }
+  
+  @media only screen and (min-width: 992px) {
+    .dangKy__bg-img {
+      width: 130%;
+    }
+  
+    .dangKy__right {
+      width: 40%;
+    }
+  
+    .dangKy__container {
+      width: 1000px !important;
+    }
+  
+  }
+  
+  @media only screen and (min-width: 1200px) {}
