@@ -16,6 +16,9 @@ import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { BlogGtComponent } from './blog-gt/blog-gt.component';
 import { DangKyComponent } from './dang-ky/dang-ky.component';
 import { DangNhapComponent } from './dang-nhap/dang-nhap.component';
+import { DatthueComponent } from './datthue/datthue.component';
+import { ThanhtoanComponent } from './thanhtoan/thanhtoan.component';
+import { DonhangComponent } from './donhang/donhang.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { DangNhapComponent } from './dang-nhap/dang-nhap.component';
     BlogDetailComponent,
     BlogGtComponent,
     DangKyComponent,
-    DangNhapComponent
+    DangNhapComponent,
+    DatthueComponent,
+    ThanhtoanComponent,
+    DonhangComponent
   ],
   imports: [
     BrowserModule,

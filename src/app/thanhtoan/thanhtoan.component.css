@@ -1,0 +1,44 @@
+.Thanhtoan__spacing{
+    margin-left: 250px;
+}
+.Thanhtoan__label--spacing{
+    margin-right: 80px;
+}
+.SVG__performance{
+    background: #12C92F; 
+}
+.SVG__color--check{
+    background:#c4c4c4; 
+}
+.SVG__color--complete{
+    background: #12C92F;
+}
+.SVG__size--icon{
+    border-radius:50%; 
+    width: 50px; 
+    height: 50px
+}
+.SVG__color--line1{
+    stroke: #12C92F;
+}
+.SVG__color--line2{
+    stroke:#c4c4c4;
+}
+.button__spacing{
+    margin-right: 30px;
+}
+.thanhtoan__SVG--performance{
+    font-size:35px; 
+    display:inline-flex;
+    width: 70%; 
+    margin-left: 30px;
+}
+.thanhtoan__SVG--text{
+    display:inline-flex; 
+    width: 70%; 
+}
+@media screen and (max-width: 600px) {
+    .thanhtoan__button--performance{
+        text-align: center;
+    }
+}
