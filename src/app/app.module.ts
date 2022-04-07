@@ -19,6 +19,10 @@ import { DangNhapComponent } from './dang-nhap/dang-nhap.component';
 import { DatthueComponent } from './datthue/datthue.component';
 import { ThanhtoanComponent } from './thanhtoan/thanhtoan.component';
 import { DonhangComponent } from './donhang/donhang.component';
+import { AlbumComponent } from './album/album.component';
+import { AlbumListComponent } from './album-list/album-list.component';
+import { CameraListComponent } from './camera-list/camera-list.component';
+import { StudioListComponent } from './studio-list/studio-list.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,11 @@ import { DonhangComponent } from './donhang/donhang.component';
     DangNhapComponent,
     DatthueComponent,
     ThanhtoanComponent,
-    DonhangComponent
+    DonhangComponent,
+    AlbumComponent,
+    AlbumListComponent,
+    CameraListComponent,
+    StudioListComponent
   ],
   imports: [
     BrowserModule,
