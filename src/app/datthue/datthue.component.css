@@ -1,0 +1,70 @@
+.SVG__size--icon{
+    border-radius:50%; 
+    width: 50px; 
+    height: 50px
+}
+.SVG__color--complete{
+    background: #12C92F;
+}
+.SVG__color--line2{
+    stroke:#c4c4c4;
+}
+.SVG__color--check{
+    background:#c4c4c4; 
+}
+.datthue__container--color{
+    background-color: black;
+}
+.datthue__SVG--performance{
+    font-size:35px; 
+    display:inline-flex;
+    width: 70%; 
+   
+}
+.datthue__SVG--text{
+    display:inline-flex; 
+    width: 70%; 
+}
+
+/* @media only screen and (max-width: 600px) {
+    .khuyenmai-1{
+        width: 100% !important;
+    }
+   } */
+   
+   @media only screen and (max-width: 576px) {
+     .dathue-giamgia{
+         width: 100% !important;
+     }
+     .datthue-buttongiamgia{
+        width: 42% !important; 
+     }
+     .datthue-buttongiamgia1{
+        width: 58% !important; 
+     }
+     .datthue-buttongiamgia2{
+        width: 100% !important; 
+     }
+     .SVG__size--icon{
+        width: 30px; 
+        height: 30px
+    }
+    .SVG__icon--size{
+        font-size:20px;
+    }
+    .datthue__SVG--performance rect{
+        y:15;
+    }
+    .datthue__text--fontsize{
+        font-size:12px
+    }
+    
+   }
+   @media only screen and (min-width: 768px) {
+    .datthue-buttongiamgia1{
+        width: 75% !important; 
+     }
+     .datthue-buttongiamgia{
+        width: 25% !important; 
+     }
+   }

@@ -1,0 +1,116 @@
+<div class="container-fluid datthue__container--color">
+    <div class="p-4">
+      <h3 class="text-center text-light">ĐẶT THUÊ</h3>
+    </div>
+    <div class="text-center">
+      <div>
+        <div class="mt-2 datthue__SVG--performance" style="max-width: 70%; margin: auto;" >
+          <div class="SVG__color--complete SVG__size--icon SVG__icon--size" >
+            <i class="bi bi-pencil-square text-light"></i>
+          </div>
+          <svg width="40%" height="50">
+            <rect x="0" y="25" rx="0" ry="0" width="100%" height="3" class="SVG__color--line2" fill="#c4c4c4" />
+          </svg>
+          <div class="SVG__color--check SVG__size--icon SVG__icon--size">
+            <i class="bi bi-credit-card text-light"></i>
+          </div>
+          <svg width="40%" height="50">
+            <rect x="0" y="25" rx="0" ry="0" width="100%" height="3" class="SVG__color--line2" fill="#c4c4c4" />
+          </svg>
+          <div class="SVG__color--check SVG__size--icon SVG__icon--size">
+            <i class="bi bi-check-circle text-light"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <div>
+        <div class="mt-2 text-light fw-bold d-flex justify-content-between" style="max-width: 70%; margin: auto;">
+          <div class="datthue__text--fontsize">
+            Đặt thuê
+          </div>
+          <div class="datthue__text--fontsize">
+            Thanh toán
+          </div>
+          <div class="datthue__text--fontsize">
+            Hoàn tất
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="container mt-4" style="max-width: 900px">
+      <form class="bg-light mx-auto p-5">
+        <div class="row mb-3 mt-1">
+          <label for="dichvu_sanpham" class="col-sm-3 col-form-label">Dịch vụ/Sản phẩm:</label>
+          <div class="col-sm-7 fw-bold mt-2">
+            <label for="dichVu_sanPham">MÁY ẢNH CANON </label>
+          </div>
+        </div>
+        <div class="row mb-3 ">
+          <label for="timeDV" class="col-sm-3 col-form-label">Thời gian đặt DV:</label>
+          <div class="col-sm-3">
+            <input type="date" class="form-control mb-3" id="timeDV">
+          </div>
+          <div class="col-sm-3">
+            <input type="time" class="form-control" id="timeDV">
+          </div>
+        </div>
+        <div class="row mb-3 ">
+          <label for="timeDT" class="col-sm-3 col-form-label">Thời hạn đặt thuê:</label>
+          <div class="col-sm-3">
+            <select id="inputState" class="form-select">
+              <option selected>1 ngày</option>
+              <option>2 ngày</option>
+              <option>3 ngày</option>
+              <option>4 ngày</option>
+              <option>5 ngày</option>
+            </select>
+          </div>
+        </div>
+        <h4 class="text-center">NHẬP THÔNG TIN CÁ NHÂN</h4>
+        <div class="row mb-3 ">
+          <label for="fullName" class="col-sm-3 col-form-label">Họ và tên:<span class="text-danger"> *</span></label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="fullName">
+          </div>
+        </div>
+        <div class="row mb-3 ">
+          <label for="phone" class="col-sm-3 col-form-label">Số điện thoại:<span class="text-danger"> *</span></label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="phone">
+          </div>
+        </div>
+        <div class="row mb-3 ">
+          <label for="idCard" class="col-sm-3 col-form-label">CMND/ CCCD:<span class="text-danger"> *</span></label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="idCard">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="email" class="col-sm-3 col-form-label">Địa chỉ email:</label>
+          <div class="col-sm-9">
+            <input type="email" class="form-control" id="email">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="voucherID" class="col-3 col-form-label dathue-giamgia">Nhập mã giảm giá:</label>
+          <div class="row col-9 pe-0 datthue-buttongiamgia2">
+            <div class="col-7 mb-3 datthue-buttongiamgia1">
+              <input type="text" class="form-control" id="voucherID">
+            </div>
+            <div class="col-5 pe-0 text-end datthue-buttongiamgia">
+              <button type="submit" class="btn btn-warning text-light">Dùng ngay</button>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mb-3">
+          <button type="submit" class="btn btn-warning text-light " style="width:150px">Đặt thuê</button>
+        </div>
+        <div class="text-center mb-5 font-italic">
+          <p class="fst-italic">Bạn phải trả tiền đặt cọc = 50% tổng số tiền thuê</p>
+        </div>
+  
+      </form>
+    </div>
+  </div>
