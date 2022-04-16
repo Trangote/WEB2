@@ -1,0 +1,171 @@
+<div class="container p-5">
+  <div class="p-3 shadow-sm mb-5 bg-white rounded min-vh-100">
+    <div
+      class="rounded text-center fw-bold text-white p-3 mb-3"
+      style="background-color: #f2c806"
+    >
+      <div>THÊM MÁY ẢNH</div>
+    </div>
+    <form>
+      <div class="mb-3 row">
+        <div class="col-md-6">
+          <label for="cameraname" class="mb-2"
+            >1. Tên máy ảnh <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            placeholder="Tên máy ảnh"
+            required
+            id="cameraname"
+            class="form-control"
+            name="cameraname"
+          />
+        </div>
+        <div class="col-md-6">
+          <label for="cameraprice" class="mb-2"
+            >2. Giá máy ảnh <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            placeholder="Giá máy ảnh"
+            required
+            id="cameraprice"
+            class="form-control"
+            name="cameraprice"
+          />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="mb-2"
+            >3. Nhà sản xuất <span class="text-danger">*</span></label
+          >
+          <select
+            class="form-control"
+            id="cameramanufacturer"
+            name="cameramanufacturer"
+            required
+          >
+            <option>Canon</option>
+            <option>Nikon</option>
+            <option>Sony</option>
+            <option>Kodak</option>
+            <option>FujiFilm</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label class="mb-2"
+            >4. Loại máy ảnh <span class="text-danger">*</span></label
+          >
+          <select
+            class="form-control"
+            id="cameratype"
+            name="cameratype"
+            required
+          >
+            <option>Máy ảnh cơ</option>
+            <option>Máy ảnh du lịch</option>
+            <option>Máy ảnh bridge</option>
+            <option>Máy ảnh số</option>
+          </select>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="cameraorigin" class="mb-2"
+            >5. Xuất xứ máy ảnh <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            placeholder="Xuất xứ máy ảnh"
+            required
+            id="cameraorigin"
+            class="form-control"
+            name="cameraorigin"
+          />
+        </div>
+        <div class="col-md-6">
+          <label for="cameramodel" class="mb-2"
+            >6. Model máy ảnh <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            placeholder="Model máy ảnh"
+            required
+            id="cameramodel"
+            class="form-control"
+            name="cameramodel"
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label mb-1"
+          >7. Thêm ảnh của máy ảnh <span class="text-danger">*</span></label
+        >
+        <div class="mb-2">
+          <i>Ảnh 1: Thông số kỹ thuật; Ảnh 2, 3, 4: Ảnh của sản phẩm </i>
+        </div>
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <small>7.1. Ảnh 1</small>
+            <input
+              type="file"
+              required
+              id="cameraimg1"
+              class="form-control"
+              name="cameraimg1"
+            />
+          </div>
+          <div class="col-md-6">
+            <small>7.2. Ảnh 2</small>
+            <input
+              type="file"
+              required
+              id="cameraimg2"
+              class="form-control"
+              name="cameraimg2"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <small>7.3. Ảnh 3</small>
+            <input
+              type="file"
+              required
+              id="cameraimg3"
+              class="form-control"
+              name="cameraimg3"
+            />
+          </div>
+          <div class="col-md-6">
+            <small>7.4. Ảnh 4</small>
+            <input
+              type="file"
+              required
+              id="cameraimg4"
+              class="form-control"
+              name="cameraimg4"
+            />
+          </div>
+        </div>
+      </div>
+      <div>
+        <label for="cameradescription" class="mb-2"
+          >8. Mô tả máy ảnh <span class="text-danger">*</span></label
+        >
+        <textarea
+          class="form-control"
+          rows="6"
+          required
+          id="cameradescription"
+          name="cameradescription"
+        >
+        </textarea>
+      </div>
+      <div class="text-center mt-3">
+        <button class="btn btn-warning text-white">Thêm sản phẩm</button>
+      </div>
+    </form>
+  </div>
+</div>

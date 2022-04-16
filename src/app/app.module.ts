@@ -10,6 +10,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { UploadCameraComponent } from './upload-camera/upload-camera.component';
+import { UploadStudioComponent } from './upload-studio/upload-studio.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     TaikhoanCanhanComponent,
     PageNotFoundComponent,
     HomepageComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    UploadCameraComponent,
+    UploadStudioComponent
   ],
   imports: [
     BrowserModule,

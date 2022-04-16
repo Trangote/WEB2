@@ -1,0 +1,150 @@
+<div class="container p-5">
+  <div class="p-3 shadow-sm mb-5 bg-white rounded min-vh-100">
+    <div
+      class="rounded text-center fw-bold text-white p-3 mb-3"
+      style="background-color: #f2c806"
+    >
+      <div>THÊM STUDIO</div>
+    </div>
+    <form>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="studioname" class="mb-2"
+            >1. Tên studio <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            placeholder="Tên studio"
+            required
+            id="studioname"
+            class="form-control"
+            name="studioname"
+          />
+        </div>
+        <div class="col-md-6">
+          <label for="studioprice" class="mb-2"
+            >2. Giá studio <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            placeholder="Giá studio"
+            required
+            id="studioprice"
+            class="form-control"
+            name="studioprice"
+          />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="mb-2"
+            >3. Phong cách <span class="text-danger">*</span></label
+          >
+          <select
+            class="form-control"
+            id="studiostyle"
+            name="studiostyle"
+            required
+          >
+            <option>Vintage</option>
+            <option>Hiện đại</option>
+            <option>Thiên nhiên</option>
+            <option>Hoàng gia</option>
+            <option>Đường phố</option>
+            <option>Tối giản</option>
+            <option>Nghệ thuật</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label class="mb-2"
+            >4. Album phù hợp <span class="text-danger">*</span></label
+          >
+          <select
+            class="form-control"
+            id="studioalbum"
+            name="studioalbum"
+            required
+          >
+            <option>Ảnh cưới</option>
+            <option>Ảnh nghệ thuật</option>
+            <option>Ảnh bé yêu</option>
+            <option>Ảnh chân dung</option>
+            <option>Ảnh kỷ yếu</option>
+            <option>Ảnh bầu</option>
+            <option>Ảnh sản phẩm</option>
+            <option>Ảnh gia đinh</option>
+            <option>Ảnh cặp đôi</option>
+          </select>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label mb-1"
+          >5. Thêm ảnh của studio <span class="text-danger">*</span></label
+        >
+        <div class="mb-2">
+          <i>Ảnh 1: Đặc điểm studio; Ảnh 2, 3, 4: Ảnh của studio </i>
+        </div>
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <small>5.1. Ảnh 1</small>
+            <input
+              type="file"
+              required
+              id="studioimg1"
+              class="form-control"
+              name="studioimg1"
+            />
+          </div>
+          <div class="col-md-6">
+            <small>5.2. Ảnh 2</small>
+            <input
+              type="file"
+              required
+              id="studioimg2"
+              class="form-control"
+              name="studioimg2"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <small>5.3. Ảnh 3</small>
+            <input
+              type="file"
+              required
+              id="studioimg3"
+              class="form-control"
+              name="studioimg3"
+            />
+          </div>
+          <div class="col-md-6">
+            <small>5.4. Ảnh 4</small>
+            <input
+              type="file"
+              required
+              id="studioimg4"
+              class="form-control"
+              name="studioimg4"
+            />
+          </div>
+        </div>
+      </div>
+      <div>
+        <label for="studiodescription" class="mb-2"
+          >6. Mô tả studio <span class="text-danger">*</span></label
+        >
+        <textarea
+          class="form-control"
+          rows="6"
+          required
+          id="studiodescription"
+          name="studiodescription"
+        >
+        </textarea>
+      </div>
+      <div class="text-center mt-3">
+        <button class="btn btn-warning text-white">Thêm sản phẩm</button>
+      </div>
+    </form>
+  </div>
+</div>
