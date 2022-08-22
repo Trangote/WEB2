@@ -1,0 +1,81 @@
+<div class="bg-dark container-fluid">
+  <div class="text-center mb-3 p-3">
+    <img src="http://localhost:3000/thanhtoan1.png" alt="" />
+  </div>
+  <div></div>
+  <div class="container bg-light">
+    <div>
+      <h2 class="ms-5 p-3">Thông tin khách hàng</h2>
+    </div>
+    <div class="row justify-content-center mb-3 ms-2">
+      <div class="col-sm-3">Họ và tên:</div>
+      <div class="col-sm-3">{{ order.fullName }}</div>
+    </div>
+    <div class="row justify-content-center mb-3 ms-2">
+      <div class="col-sm-3">Số điện thoại:</div>
+      <div class="col-sm-3">{{ order.phone }}</div>
+    </div>
+    <div class="row justify-content-center mb-3 ms-2">
+      <div class="col-sm-3">CMND/CCCD:</div>
+      <div class="col-sm-3">{{ order.idCard }}</div>
+    </div>
+    <div class="row justify-content-center mb-3 ms-2">
+      <div class="col-sm-3">Email:</div>
+      <div class="col-sm-3">{{ order.email }}</div>
+    </div>
+    <hr />
+    <div class="ms-5">
+      <h2 class="ms-3">Thông tin đơn hàng</h2>
+    </div>
+    <div class="row justify-content-center mb-3 ms-2">
+      <div class="col-sm-3">Mã đơn hàng:</div>
+      <div class="col-sm-3 fw-bold - text-uppercase" [title]="order.orderID">
+        {{
+          order.orderID!.length > 20
+            ? (order.orderID | slice: 0:21) + "..."
+            : order.orderID
+        }}
+      </div>
+    </div>
+    <div class="row justify-content-center mb-3 ms-2">
+      <div class="col-sm-3">Sản phẩm/Dịch vụ:</div>
+      <div class="col-sm-3 text-uppercase">{{ order.productName }}</div>
+    </div>
+    <div class="row justify-content-center mb-3 ms-2">
+      <div class="col-sm-3">Ngày đặt thuê:</div>
+      <div class="col-sm-3">
+        {{ order.dateRent | date: "HH:mm:ss" }}
+      </div>
+    </div>
+    <div class="row justify-content-center mb-3 ms-2">
+      <div class="col-sm-3">Thời gian nhận hàng:</div>
+      <div class="col-sm-3">
+        {{ order.timeRent }} {{ order.dateReceive | date: "dd/MM/yyyy" }}
+      </div>
+    </div>
+    <div class="row justify-content-center mb-3 ms-2">
+      <div class="col-sm-3">Thời hạn đặt thuê:</div>
+      <div class="col-sm-3">{{ order.rentFor }}</div>
+    </div>
+    <div class="row justify-content-center mb-3 ms-2">
+      <div class="col-sm-3">Trạng thái:</div>
+      <div class="col-sm-3 text-success fw-bold">{{ order.status }}</div>
+    </div>
+    <div class="row justify-content-center mb-3 ms-2">
+      <div class="col-sm-3">Tiền đặt thuê:</div>
+      <div class="col-sm-3 fw-bold">{{ tienDatThue }} VNĐ</div>
+    </div>
+    <div class="row justify-content-center mb-3 ms-2">
+      <div class="col-sm-3">Tiền đặt cọc:</div>
+      <div class="col-sm-3 fw-bold">{{ order.depositPrice }} VNĐ</div>
+    </div>
+    <div class="row justify-content-center mb-3 ms-2">
+      <div class="col-sm-3">Số tiền còn lại:</div>
+      <div class="col-sm-3">0 VNĐ</div>
+    </div>
+    <hr />
+    <div class="text-center p-3">
+      <button class="btn btn-warning text-light fw-bold" style="width:150px" (click)="back()">Trở về</button>
+    </div>
+  </div>
+</div>

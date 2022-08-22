@@ -1,0 +1,285 @@
+<div class="pb-5" style="background-color: #242426">
+  <header class="header-container">
+    <img
+      class="banner"
+      src="http://localhost:3000/bannerweb.png"
+      alt=""
+    />
+    <div class="text-header">
+      <div class="text-center text-white">
+        <p class="big-header">Cho thuê máy ảnh</p>
+        <p class="subtext-header">Lưu trữ kỷ niệm của riêng bạn!</p>
+      </div>
+    </div>
+    <div class="top-product bg-light p-5">
+      <p class="top-text mb-5 mt-3">Top 3 sản phẩm có lượt cho thuê cao nhất</p>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-4" *ngFor="let nb of camerasNB2 | slice: 0:3">
+              <div class="card mb-3" (click)="chitiet(nb)">
+                <img src="http://localhost:3000/{{ nb.imgProduct1 }}" alt="" class="card-img-top" />
+                <div class="card-body">
+                  <p class="card-title fw-bold">{{ nb.productName }}</p>
+                  <p class="card-text">{{ nb.brand }} - {{ nb.origin }}</p>
+                  <p class="card-text">Phù hợp chụp {{ nb.type }}</p>
+                  <p class="card-price fw-bold">{{ nb.unitPrice }} VND/ngày</p>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="body-content">
+    <div class="container">
+      <div class="row">
+        <div class="col col-md-4 col-lg-3">
+          <div class="filter-box bg-white p-4">
+            <form class="form-inline mb-4 text-left">
+              <p class="text-secondary font-weight-bold filter-title mb-4">
+                Bộ lọc
+              </p>
+              <div class="col mb-4">
+                <p class="text-secondary font-weight-bold filter-sub">
+                  Sắp xếp theo
+                </p>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="filtersapxep"
+                    id="filter_quantity"
+                    (ngModelChange)="sapxepQuantity()"
+                    [(ngModel)]="filter_other.filter_quantity"
+                    value="filter_quantity"
+                  />
+                  <label class="form-check-label" for="filter_quantity">
+                    Lượt thuê
+                  </label>
+                </div>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="filtersapxep"
+                    id="filter_price"
+                    (ngModelChange)="sapxepPrice()"
+                    [(ngModel)]="filter_other.filter_price"
+                    value="filter_price"
+                  />
+                  <label class="form-check-label" for="filter_price">
+                    Giá cả
+                  </label>
+                </div>
+              </div>
+              <div class="col mb-4">
+                <p class="text-secondary font-weight-bold filter-sub">Loại</p>
+                <div>
+                  <div class="form-check mb-3">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      [(ngModel)]="filter_type.All_type"
+                      (ngModelChange)="selectAllType()"
+                      name="All_type"
+                      id="All_type"
+                    />
+                    <label class="form-check-label" for="All_type">
+                      Tất cả
+                    </label>
+                  </div>
+                  <div class="form-check mb-3">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      [(ngModel)]="filter_type.May_anh_co"
+                      (ngModelChange)="filterChange()"
+                      name="May_anh_co"
+                      id="May_anh_co"
+                    />
+                    <label class="form-check-label" for="May_anh_co">
+                      Máy ảnh cơ
+                    </label>
+                  </div>
+                  <div class="form-check mb-3">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      [(ngModel)]="filter_type.May_anh_du_lich"
+                      (ngModelChange)="filterChange()"
+                      name="May_anh_du_lich"
+                      id="May_anh_du_lich"
+                    />
+                    <label class="form-check-label" for="May_anh_du_lich">
+                      Máy ảnh du lịch
+                    </label>
+                  </div>
+                  <div class="form-check mb-3">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      [(ngModel)]="filter_type.May_anh_bridge"
+                      (ngModelChange)="filterChange()"
+                      name="May_anh_bridge"
+                      id="May_anh_bridge"
+                    />
+                    <label class="form-check-label" for="May_anh_bridge">
+                      Máy ảnh bridge
+                    </label>
+                  </div>
+                  <div class="form-check mb-3">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      [(ngModel)]="filter_type.May_anh_so"
+                      (ngModelChange)="filterChange()"
+                      name="May_anh_so"
+                      id="May_anh_so"
+                    />
+                    <label class="form-check-label" for="May_anh_so">
+                      Máy ảnh số
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col mb-4">
+                <p class="text-secondary font-weight-bold filter-sub">
+                  Hãng máy
+                </p>
+                <div>
+                  <div class="form-check mb-3">
+                    <div class="mb-3">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        [(ngModel)]="filter_brand.All_brand"
+                        (ngModelChange)="selectAllBrand()"
+                        name="All_brand"
+                        id="All_brand"
+                      />
+                      <label class="form-check-label" for="All_brand">
+                        Tất cả
+                      </label>
+                    </div>
+                    <div class="mb-3">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        [(ngModel)]="filter_brand.Canon"
+                        (ngModelChange)="filterChange()"
+                        name="Canon"
+                      />
+                      <label class="form-check-label" for="Canon">
+                        Canon
+                      </label>
+                    </div>
+                    <div class="mb-3">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        [(ngModel)]="filter_brand.Nikon"
+                        (ngModelChange)="filterChange()"
+                        name="Nikon"
+                        id="Nikon"
+                      />
+                      <label class="form-check-label" for="Nikon">
+                        Nikon
+                      </label>
+                    </div>
+                    <div class="mb-3">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        [(ngModel)]="filter_brand.Sony"
+                        (ngModelChange)="filterChange()"
+                        name="Sony"
+                        id="Sony"
+                      />
+                      <label class="form-check-label" for="Sony"> Sony </label>
+                    </div>
+                    <div class="mb-3">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        [(ngModel)]="filter_brand.Kodak"
+                        (ngModelChange)="filterChange()"
+                        name="Kodak"
+                        id="Kodak"
+                      />
+                      <label class="form-check-label" for="Kodak">
+                        Kodak
+                      </label>
+                    </div>
+                    <div class="mb-3">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        name="FujiFilm"
+                        [(ngModel)]="filter_brand.FujiFilm"
+                        (ngModelChange)="filterChange()"
+                        id="FujiFilm"
+                      />
+                      <label class="form-check-label" for="FujiFilm">
+                        FujiFilm
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-button text-center mt-5">
+                <button
+                  class="btn btn-reset text-white w-100 btn-disco"
+                  type="reset"
+                  (click)="loadCameras()" 
+                >
+                  Đặt lại
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col col-md-8 col-lg-9">
+          <div class="col mb-4">
+            <div class="input-group">
+              <div class="w-50">
+                <input
+                  type="search"
+                  id="form1"
+                  class="form-control"
+                  placeholder="Tìm kiếm"
+                  autocomplete="off"
+                  [(ngModel)]="searchText"
+                />
+              </div>
+              <button type="button" class="btn btn-primary btn-apply">
+                <i class="fas fa-search col-2"></i>
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div
+              class="col-12 col-lg-6 col-xl-4 text-center"
+              *ngFor="let p of cameras3 | filter: searchText!"
+            >
+                <div class="card mb-3" (click)="chitiet(p)">
+                  <img src="http://localhost:3000/{{ p.imgProduct1 }}" alt="" class="card-img-top" />
+                  <div class="card-body">
+                    <p class="card-title fw-bold">{{ p.productName }}</p>
+                    <p class="card-text">{{ p.brand }}, {{ p.origin }}</p>
+                    <p class="card-text">{{ p.type }}, {{ p.model }}</p>
+                    <p class="card-price">{{ p.unitPrice }} VND/ngày</p>
+                  </div>
+                </div>
+            </div>
+            <div
+              class="text-center text-light"
+              [ngClass]="{ 'd-block': iff, 'd-none': !iff }"
+            >
+              Không có kết quả tìm kiếm
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

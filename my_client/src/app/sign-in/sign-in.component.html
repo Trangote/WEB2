@@ -1,0 +1,121 @@
+<div class="container-fluid dangNhap__container mb-5">
+  <form [formGroup]="form" (ngSubmit)="onSubmit(userName, password)">
+    <div class="row">
+      <div class="col-lg-3 d-sm-none d-none d-lg-block">
+        <img
+          src="https://blogger.googleusercontent.com/img/a/AVvXsEiJir-XWF7JthGLyz6BBWgkxsY7XwHwM-ZBOLMdkWqwIqWrs9FibvzVzUdmTHXmPs1Fbi_PwOoIZYtfEwVw9EoYdVnfoVAETmQo847zxBtJq7SZ31AkfGStz6Tymh6EIr7zmmZm6JGhUsg8Vlz9EzaGAbSqsORxAMGS9KCClYXOOIqxBQtiYsFn0vNFYw=s0"
+          class="dangNhap__bg--img"
+        />
+      </div>
+      <div class="col-lg-4 pt-5 dangNhap__right container-fluid">
+        <h4 class="text-center fw-bold">ĐĂNG NHẬP MỚI</h4>
+        <div class="mb-3">
+          <label for="" class="fw-light"
+            >Tên đăng nhập <span class="text-danger">*</span></label
+          >
+          <div class="form-input-check">
+            <input
+              type="text"
+              id="userName"
+              class="form-control"
+              placeholder="Tên đăng nhập"
+              formControlName="userName"
+              [ngClass]="{
+                'is-invalid': f['userName'].errors && f['userName'].touched
+              }"
+              name="userName"
+              required #userName
+            />
+            <div *ngIf="f['userName'].errors && f['userName'].touched">
+              <small
+                class="text-danger"
+                *ngIf="f['userName'].errors?.['required']"
+                >Tên đăng nhập không được để trống</small
+              ><br />
+              <small
+                class="text-danger"
+                *ngIf="f['userName'].errors?.['minlength']"
+                >Tên đăng nhập phải có tối thiểu 1 ký tự</small
+              ><br/>
+              <small
+                class="text-danger"
+                *ngIf="f['userName'].errors?.['nameNotMatch']"
+                >Tên đăng nhập không được chứa ký tự đặc biệt</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="" class="fw-light"
+            >Mật khẩu <span class="text-danger">*</span></label
+          >
+          <div>
+            <input
+              type="password"
+              placeholder="**********"
+              formControlName="password"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid': f['password'].errors && f['password'].touched
+              }"
+              placeholder="******"
+              required
+              name="password"
+              id="password" #password
+            />
+            <div *ngIf="f['password'].errors && f['password'].touched">
+              <small
+                class="text-danger"
+                *ngIf="f['password'].errors?.['required']"
+                >Mật khẩu không được để trống</small
+              >
+              <small
+                class="text-danger"
+                *ngIf="f['password'].errors?.['minlength']"
+                >Mật khẩu phải có tối thiểu 6 ký tự</small
+              ><br />
+              <small
+                class="text-danger"
+                *ngIf="f['password'].errors?.['maxlength']"
+                >Mật khẩu phải có tối đa 40 ký tự</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="text-center mb-3">
+          <button class="text-white btn bg-dark rounded" type="submit">
+            Đăng nhập
+          </button>
+        </div>
+        <div class="mb-3 text-center">HOẶC ĐĂNG NHẬP VỚI</div>
+        <div class="text-center mb-lg-4 mb-md-4 dangNhap__btn">
+          <button
+            class="me-lg-5 me-md-5 rounded border border-primary text-primary btn-xs dangNhap__btn--fb"
+          >
+            <img
+              src="https://blogger.googleusercontent.com/img/a/AVvXsEi1dQ4yFJzLEk-CSVkJZQlnj-AMCtqQOJhHJOaQFnC24DLmrnPX26BlfhU3o9O7Ce_qPQjiAQeJtYl6wOpXpazsHPur25Ub_9W-9rXgM5hSeLTf5rcstgAMPUQwNEfpIFjCN9bqKKuRxF7vBBlPI8Sk6RIsMLIo1D97K2o5M4M1Sun-_T0nHxH0aisStg=s0"
+              alt=""
+              class="dangNhap__btn--img"
+            />
+            Facebook
+          </button>
+          <button
+            class="border-red rounded border border-danger text-danger btn-xs-25"
+          >
+            <img
+              src="https://blogger.googleusercontent.com/img/a/AVvXsEhQC5Dzo32Syz7UEwTy0OPz5MlQya7_mSstHQV4JS2azKxhVK9pMt7bd8ouamOmastJdoQ7wDV-3bANiy8_-qBU9NtPkPs1kNTHxeMe3xksLzwUScKePTvDcXRnsxZ8GkGfk7gebXNYSOUBdcgbu49jxcvwQlRDDFcWe2-bBYF6HOtekmBOPrN4m3o1Vw=s0
+          "
+              alt=""
+              class="dangNhap__btn--img"
+            />
+            Google
+          </button>
+        </div>
+        <div class="mb-3 text-center">
+          Bạn chưa có tài khoản?
+          <span class="fw-bold text-dark" (click)="dangKy()"> Tạo tài khoản</span>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

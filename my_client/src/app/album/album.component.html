@@ -1,0 +1,27 @@
+<div class="mb-5 mt-4 text-center">
+  <p class="big-header">Album {{ album.name }}</p>
+</div>
+<div class="row">
+  <div class="column">
+    <div>
+      <div *ngFor="let img1 of images1">
+        <img src="http://localhost:3000/{{ img1 }}" />
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div *ngFor="let img2 of images2">
+      <img src="http://localhost:3000/{{ img2 }}" />
+    </div>
+  </div>
+  <div class="column">
+    <div *ngFor="let img3 of images3">
+      <img src="http://localhost:3000/{{ img3 }}" />
+    </div>
+  </div>
+  <div class="column">
+    <div *ngFor="let img4 of images4">
+      <img src="http://localhost:3000/{{ img4 }}" />
+    </div>
+  </div>
+</div>

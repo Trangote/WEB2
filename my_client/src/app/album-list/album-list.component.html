@@ -1,0 +1,34 @@
+<div style="background-color: #242426">
+  <div class="container text-center p-3">
+    <div class="mx-5">
+      <div class="mb-5 mt-4">
+        <p class="big-header text-white">Tổng hợp album</p>
+        <p class="text-white text-dct">
+          Tổng hợp các phong cách chụp ảnh với nhiều màu sắc khác nhau.<br />Thỏa
+          sức khám phá và tìm kiếm một màu sắc riêng của chính mình nhé!
+        </p>
+      </div>
+      <div class="">
+        <div class="row">
+          <div
+            class="col col-sm-6 col-lg-4 p-3"
+            *ngFor="let p of albums"
+            (click)="chitiet(p)"
+          >
+            <div class="card mb-3" style="width: 20rem">
+              <img
+                src="http://localhost:3000/{{ p.imgalbum }}"
+                alt=""
+                class="card-img-top card-custom-top"
+              />
+              <div class="card-body">
+                <h3 class="card-title">{{ p.name }}</h3>
+                <p class="card-text text-secondary">16 ảnh</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,183 @@
+/* You can add global styles to this file, and also import other style files */
+.banner{
+    width: 100%;
+}
+.form-check-input:checked {
+    background-color: #F2C806 !important;
+    border-color: #F2C806 !important;
+}
+.header-container{
+    position: relative;
+}
+.card{
+    padding: 0px;
+}
+.card:hover {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    transform: scale(1.1);
+    transition: all 0.2s ease;
+}
+.card-title{
+    margin-bottom: 16px;
+}
+.card-text{
+    margin-bottom: 5px;
+}
+.btn-block{
+    width: 100%;
+}
+.btn-apply{
+    background-color: #F2C806 !important;
+    border: #F2C806 !important;
+}
+.btn-outline-apply{
+    border-color: #F2C806 !important;
+    color: #F2C806 !important;
+}
+.btn-outline-apply:hover{
+    background-color: #F2C806 !important;
+    color: #fff !important;
+}
+.big-header{
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 28px;
+}
+.text-header{
+    position: absolute;
+    top: 25px;
+    left: 20%;
+}
+.card{
+    text-align: center;
+}
+.btn-disco{
+    background-color: #F2C806 !important;
+    border-color: #F2C806 !important;
+}
+.top-product{
+    position: absolute;
+    width: 90%;
+    top: 160px;
+    left: 5%;
+    border-radius: 10px;
+    text-align: center;
+}
+.card-img-cover{
+    object-fit: cover;
+    width: 402 px;
+    height: 324 px;
+}
+.card-img-top{
+    object-fit: cover;
+    height: 224px;
+}
+.update-title{
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 30px;
+line-height: 59px;
+color: #242426;
+}
+.top-text{
+    font-weight: 600;
+}
+.card-price{
+    color: #F2C806;
+    font-weight: 600;
+    margin-top: 16px;
+}
+.filter-box{
+    border-radius: 5px;
+    font-weight: 600;
+}
+.body-content{
+    padding-top: 1400px;
+}
+.filter-title{
+    font-size: 22px;
+    line-height: 22px;
+}
+.filter-sub{
+    font-size: 17px;
+}
+.btn-white{
+    color: #F2C806 !important;
+}
+@media only screen and (min-width: 600px) {
+    .text-header{
+        top: 60px;
+        left: 6%;
+    }
+    .top-product{
+        top: 220px;
+    }
+    .body-content{
+        padding-top: 1350px;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .big-header{
+        font-size: 34px;
+        line-height: 41px;
+    }
+    .text-header{
+        top: 90px;
+    }
+    .top-product{
+        top: 320px;
+    }
+    .body-content{
+        padding-top: 1400px;
+    }
+    .top-text{
+        font-size: 22px;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .big-header{
+        font-size: 48px;
+        line-height: 60px;
+    }
+    .text-header{
+        top: 90px;
+    }
+    .subtext-header{
+        font-size: 34px;
+    }
+    .top-product{
+        top: 320px;
+        border-radius: 20px;
+        text-align: left;
+    }
+    .top-text{
+        font-size: 28px; 
+    }
+    .body-content{
+        padding-top: 480px;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .text-header{
+        top: 160px;
+    }
+    .subtext-header{
+        font-size: 34px;
+    }
+    .top-product{
+        top: 490px;
+      
+    }
+    .body-content{
+        padding-top: 550px;
+    }
+}
+@media only screen and (min-width: 1480px) {
+  
+    .body-content{
+        padding-top: 450px;
+    }
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

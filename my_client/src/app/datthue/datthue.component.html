@@ -1,0 +1,672 @@
+<div *ngIf="camera" class="container-fluid datthue__container--color">
+  <!-- <div class="p-4">
+    <p class="text-center text-light fw-bold h2">ĐẶT THUÊ</p>
+  </div> -->
+  <!-- <div class="text-center">
+    <div>
+      <div
+        class="mt-2 datthue__SVG--performance"
+        style="max-width: 70%; margin: auto"
+      >
+        <div class="SVG__color--complete SVG__size--icon SVG__icon--size">
+          <i class="bi bi-pencil-square text-light"></i>
+        </div>
+        <svg width="40%" height="50">
+          <rect
+            x="0"
+            y="25"
+            rx="0"
+            ry="0"
+            width="100%"
+            height="3"
+            class="SVG__color--line2"
+            fill="#c4c4c4"
+          />
+        </svg>
+        <div class="SVG__color--check SVG__size--icon SVG__icon--size">
+          <i class="bi bi-credit-card text-light"></i>
+        </div>
+        <svg width="40%" height="50">
+          <rect
+            x="0"
+            y="25"
+            rx="0"
+            ry="0"
+            width="100%"
+            height="3"
+            class="SVG__color--line2"
+            fill="#c4c4c4"
+          />
+        </svg>
+        <div class="SVG__color--check SVG__size--icon SVG__icon--size">
+          <i class="bi bi-check-circle text-light"></i>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- <div class="text-center">
+    <div>
+      <div
+        class="mt-2 text-light fw-bold d-flex justify-content-between"
+        style="max-width: 68%; margin: auto"
+      >
+        <div class="datthue__text--fontsize">Đặt thuê</div>
+        <div class="datthue__text--fontsize">Thanh toán</div>
+        <div class="datthue__text--fontsize">Hoàn tất</div>
+      </div>
+    </div>
+  </div> -->
+ <div class="text-center mb-3 p-3">
+   <img src="http://localhost:3000/Datthue.png" alt="">
+ </div>
+  <div class="container mt-4 p-3" style="max-width: 900px">
+    <form
+      class="bg-light mx-auto p-5"
+      [formGroup]="regForm"
+      (ngSubmit)="submitData()"
+    >
+      <input
+        type="text"
+        hidden
+        name="title"
+        formControlName="title"
+        value="Đặt thuê thành công"
+        id="title"
+      />
+      <input
+        type="text"
+        hidden
+        name="body"
+        formControlName="body"
+        value="Bạn đã đặt thuê thành công!"
+        id="body"
+      />
+      <input
+        type="text"
+        hidden
+        name="icon"
+        formControlName="icon"
+        value="https://icons.veryicon.com/png/o/miscellaneous/cloud-call-center/success-24.png"
+        id="icon"
+      />
+
+      <div class="row mb-3 mt-1">
+        <label for="dichvu_sanpham" class="col-sm-3 col-form-label"
+          >Dịch vụ/Sản phẩm:</label
+        >
+        <div class="col-sm-7 fw-bold mt-2">
+          <input
+            type="text"
+            id="productName"
+            name="productName"
+            formControlName="productName"
+            class="form-control"
+            readonly
+            [(ngModel)]="camera.productName"
+          />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="dateReceive" class="col-sm-3 col-form-label"
+          >Thời gian đặt DV:
+        </label>
+        <div class="col-sm-3">
+          <input
+            type="date"
+            class="form-control mb-3"
+            id="dateReceive"
+            formControlName="dateReceive"
+            name="dateReceive"
+            required
+            [ngClass]="{
+              'is-invalid': f['dateReceive'].errors && f['dateReceive'].touched
+            }"
+          />
+          <div *ngIf="f['dateReceive'].errors && f['dateReceive'].touched">
+            <small
+              class="text-danger"
+              *ngIf="f['dateReceive'].errors?.['required']"
+              >Ngày đặt thuê không được để trống</small
+            >
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <input
+            type="time"
+            class="form-control"
+            id="timeRent"
+            formControlName="timeRent"
+            name="timeRent"
+            required
+            [ngClass]="{
+              'is-invalid': f['timeRent'].errors && f['timeRent'].touched
+            }"
+          />
+          <div *ngIf="f['timeRent'].errors && f['timeRent'].touched">
+            <small
+              class="text-danger"
+              *ngIf="f['timeRent'].errors?.['required']"
+              >Giờ hẹn đặt thuê không được để trống</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="rentFor" class="col-sm-3 col-form-label"
+          >Thời hạn đặt thuê:</label
+        >
+        <div class="col-sm-3">
+          <select
+            id="rentFor"
+            class="form-select"
+            formControlName="rentFor"
+            name="rentFor"
+            [ngClass]="{
+              'is-invalid': f['rentFor'].errors && f['rentFor'].touched
+            }"
+            required
+          >
+            <option>1 ngày</option>
+            <option>2 ngày</option>
+            <option>3 ngày</option>
+            <option>4 ngày</option>
+            <option>5 ngày</option>
+          </select>
+          <div *ngIf="f['rentFor'].errors && f['rentFor'].touched">
+            <small class="text-danger" *ngIf="f['rentFor'].errors?.['required']"
+              >Thời hạn đặt thuê không được để trống</small
+            >
+          </div>
+        </div>
+      </div>
+      <h4 class="text-center">NHẬP THÔNG TIN CÁ NHÂN</h4>
+      <div class="row mb-3">
+        <label for="fullName" class="col-sm-3 col-form-label"
+          >Họ và tên:<span class="text-danger"> *</span></label
+        >
+        <div class="col-sm-9">
+          <input
+            type="text"
+            class="form-control"
+            id="fullName"
+            name="fullName"
+            formControlName="fullName"
+            [ngClass]="{
+              'is-invalid': f['fullName'].errors && f['fullName'].touched
+            }"
+            required
+            [(ngModel)]="user.fullName"
+          />
+          <div *ngIf="f['fullName'].errors && f['fullName'].touched">
+            <small
+              class="text-danger"
+              *ngIf="f['fullName'].errors?.['required']"
+              >Họ tên không được để trống</small
+            >
+            <small
+              class="text-danger"
+              *ngIf="f['fullName'].errors?.['minlength']"
+              >Họ tên phải có tối thiểu 1 ký tự</small
+            ><br />
+            <small
+              class="text-danger"
+              *ngIf="f['fullName'].errors?.['nameNotMatch']"
+              >Họ tên không được chứa ký tự đặc biệt</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="phone" class="col-sm-3 col-form-label"
+          >Số điện thoại:<span class="text-danger"> *</span></label
+        >
+        <div class="col-sm-9">
+          <input
+            type="text"
+            class="form-control"
+            id="phone"
+            name="phone"
+            formControlName="phone"
+            [(ngModel)]="user.phone"
+            [ngClass]="{
+              'is-invalid': f['phone'].errors && f['phone'].touched
+            }"
+            required
+          />
+          <div *ngIf="f['phone'].errors && f['phone'].touched">
+            <small class="text-danger" *ngIf="f['phone'].errors?.['required']"
+              >Số điện thoại không được để trống</small
+            ><br />
+            <small class="text-danger" *ngIf="f['phone'].errors?.['pattern']"
+              >Số điện thoại không hợp lệ</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="idCard" class="col-sm-3 col-form-label"
+          >CMND/ CCCD:<span class="text-danger"> *</span></label
+        >
+        <div class="col-sm-9">
+          <input
+            type="text"
+            class="form-control"
+            id="idCard"
+            name="idCard"
+            class="form-control"
+            placeholder="Nhập số CCCD/CMND"
+            formControlName="idCard"
+            [ngClass]="{
+              'is-invalid': f['idCard'].errors && f['idCard'].touched
+            }"
+            required
+          />
+          <div *ngIf="f['idCard'].errors && f['idCard'].touched">
+            <small class="text-danger" *ngIf="f['idCard'].errors?.['required']"
+              >CMND/CCCD không được để trống</small
+            >
+            <small class="text-danger" *ngIf="f['idCard'].errors?.['minlength']"
+              >CMND/CCCD phải có tối thiểu 9 ký tự</small
+            >
+            <small class="text-danger" *ngIf="f['idCard'].errors?.['maxlength']"
+              >CMND/CCCD phải có tối đa 12 ký tự</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="email" class="col-sm-3 col-form-label"
+          >Địa chỉ email:</label
+        >
+        <div class="col-sm-9">
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            class="form-control"
+            placeholder="Nhập địa chỉ email"
+            formControlName="email"
+            [ngClass]="{
+              'is-invalid': f['email'].errors && f['email'].touched
+            }"
+            [(ngModel)]="user.email"
+            required
+          />
+          <div *ngIf="f['email'].errors && f['email'].touched">
+            <small class="text-danger" *ngIf="f['email'].errors?.['required']"
+              >Email không được để trống</small
+            >
+            <small class="text-danger" *ngIf="f['email'].errors?.['pattern']"
+              >Email không hợp lệ</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="voucherID" class="col-3 col-form-label dathue-giamgia"
+          >Nhập mã giảm giá:</label
+        >
+        <div class="row col-9 pe-0 datthue-buttongiamgia2">
+          <div class="col-7 mb-3 datthue-buttongiamgia1">
+            <input
+              type="text"
+              class="form-control"
+              id="voucherID"
+              name="voucherID"
+              formControlName="voucherID"
+              class="form-control"
+              placeholder="Mã giảm giá"
+              [(ngModel)]="khuyenmai.voucherID"
+            />
+          </div>
+          <div class="col-5 pe-0 text-end datthue-buttongiamgia">
+            <button
+              (click)="DatThueCam(camera._id)"
+              type="submit"
+              class="btn btn-warning text-light"
+            >
+              Dùng ngay
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mb-3">
+        <button
+          type="submit"
+          class="btn btn-warning text-light"
+          style="width: 150px"
+        >
+          Đặt thuê
+        </button>
+      </div>
+      <div class="text-center mb-5 font-italic">
+        <p class="fst-italic">
+          Bạn phải trả tiền đặt cọc = 50% tổng số tiền thuê
+        </p>
+      </div>
+    </form>
+  </div>
+</div>
+<div *ngIf="studio" class="container-fluid datthue__container--color">
+  <div class="p-4">
+    <h3 class="text-center text-light">ĐẶT THUÊ</h3>
+  </div>
+  <div class="text-center">
+    <div>
+      <div
+        class="mt-2 datthue__SVG--performance"
+        style="max-width: 70%; margin: auto"
+      >
+        <div class="SVG__color--complete SVG__size--icon SVG__icon--size">
+          <i class="bi bi-pencil-square text-light"></i>
+        </div>
+        <svg width="40%" height="50">
+          <rect
+            x="0"
+            y="25"
+            rx="0"
+            ry="0"
+            width="100%"
+            height="3"
+            class="SVG__color--line2"
+            fill="#c4c4c4"
+          />
+        </svg>
+        <div class="SVG__color--check SVG__size--icon SVG__icon--size">
+          <i class="bi bi-credit-card text-light"></i>
+        </div>
+        <svg width="40%" height="50">
+          <rect
+            x="0"
+            y="25"
+            rx="0"
+            ry="0"
+            width="100%"
+            height="3"
+            class="SVG__color--line2"
+            fill="#c4c4c4"
+          />
+        </svg>
+        <div class="SVG__color--check SVG__size--icon SVG__icon--size">
+          <i class="bi bi-check-circle text-light"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <div>
+      <div
+        class="mt-2 text-light fw-bold d-flex justify-content-between"
+        style="max-width: 70%; margin: auto"
+      >
+        <div class="datthue__text--fontsize">Đặt thuê</div>
+        <div class="datthue__text--fontsize">Thanh toán</div>
+        <div class="datthue__text--fontsize">Hoàn tất</div>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-4" style="max-width: 900px">
+    <form
+      class="bg-light mx-auto p-5"
+      [formGroup]="regForm"
+      (ngSubmit)="submitData()"
+    >
+      <div class="row mb-3 mt-1">
+        <label for="dichvu_sanpham" class="col-sm-3 col-form-label"
+          >Dịch vụ/Sản phẩm:</label
+        >
+        <div class="col-sm-7 fw-bold mt-2">
+          <input
+            type="text"
+            id="productName"
+            name="productName"
+            formControlName="productName"
+            class="form-control"
+            readonly
+            [(ngModel)]="studio.productName"
+          />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="dateRent" class="col-sm-3 col-form-label"
+          >Thời gian đặt DV:
+        </label>
+        <div class="col-sm-3">
+          <input
+            type="date"
+            class="form-control mb-3"
+            id="dateReceive"
+            formControlName="dateReceive"
+            name="dateReceive"
+            [ngClass]="{
+              'is-invalid': f['dateReceive'].errors && f['dateReceive'].touched
+            }"
+          />
+          <div *ngIf="f['dateReceive'].errors && f['dateReceive'].touched">
+            <small
+              class="text-danger"
+              *ngIf="f['dateReceive'].errors?.['required']"
+              >Ngày đặt thuê không được để trống</small
+            >
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <input
+            type="time"
+            class="form-control"
+            id="timeRent"
+            formControlName="timeRent"
+            name="timeRent"
+            required
+            [ngClass]="{
+              'is-invalid': f['timeRent'].errors && f['timeRent'].touched
+            }"
+          />
+          <div *ngIf="f['timeRent'].errors && f['timeRent'].touched">
+            <small
+              class="text-danger"
+              *ngIf="f['timeRent'].errors?.['required']"
+              >Giờ hẹn đặt thuê không được để trống</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="rentFor" class="col-sm-3 col-form-label"
+          >Thời hạn đặt thuê:</label
+        >
+        <div class="col-sm-3">
+          <select
+            id="rentFor"
+            class="form-select"
+            formControlName="rentFor"
+            name="rentFor"
+            [ngClass]="{
+              'is-invalid': f['rentFor'].errors && f['rentFor'].touched
+            }"
+            required
+          >
+            <option>1 ngày</option>
+            <option>2 ngày</option>
+            <option>3 ngày</option>
+            <option>4 ngày</option>
+            <option>5 ngày</option>
+          </select>
+          <div *ngIf="f['rentFor'].errors && f['rentFor'].touched">
+            <small class="text-danger" *ngIf="f['rentFor'].errors?.['required']"
+              >Thời hạn đặt thuê không được để trống</small
+            >
+          </div>
+        </div>
+      </div>
+      <h4 class="text-center">NHẬP THÔNG TIN CÁ NHÂN</h4>
+      <div class="row mb-3">
+        <label for="fullName" class="col-sm-3 col-form-label"
+          >Họ và tên:<span class="text-danger"> *</span></label
+        >
+        <div class="col-sm-9">
+          <input
+            type="text"
+            class="form-control"
+            id="fullName"
+            name="fullName"
+            formControlName="fullName"
+            [ngClass]="{
+              'is-invalid': f['fullName'].errors && f['fullName'].touched
+            }"
+            required
+            [(ngModel)]="user.fullName"
+          />
+          <div *ngIf="f['fullName'].errors && f['fullName'].touched">
+            <small
+              class="text-danger"
+              *ngIf="f['fullName'].errors?.['required']"
+              >Họ tên không được để trống</small
+            >
+            <small
+              class="text-danger"
+              *ngIf="f['fullName'].errors?.['minlength']"
+              >Họ tên phải có tối thiểu 1 ký tự</small
+            ><br />
+            <small
+              class="text-danger"
+              *ngIf="f['fullName'].errors?.['nameNotMatch']"
+              >Họ tên không được chứa ký tự đặc biệt</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="phone" class="col-sm-3 col-form-label"
+          >Số điện thoại:<span class="text-danger"> *</span></label
+        >
+        <div class="col-sm-9">
+          <input
+            type="text"
+            class="form-control"
+            id="phone"
+            name="phone"
+            formControlName="phone"
+            [(ngModel)]="user.phone"
+            [ngClass]="{
+              'is-invalid': f['phone'].errors && f['phone'].touched
+            }"
+            required
+          />
+          <div *ngIf="f['phone'].errors && f['phone'].touched">
+            <small class="text-danger" *ngIf="f['phone'].errors?.['required']"
+              >Số điện thoại không được để trống</small
+            ><br />
+            <small class="text-danger" *ngIf="f['phone'].errors?.['pattern']"
+              >Số điện thoại không hợp lệ</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="idCard" class="col-sm-3 col-form-label"
+          >CMND/ CCCD:<span class="text-danger"> *</span></label
+        >
+        <div class="col-sm-9">
+          <input
+            type="text"
+            class="form-control"
+            id="idCard"
+            name="idCard"
+            class="form-control"
+            placeholder="Nhập số CCCD/CMND"
+            [(ngModel)]="user.idCard"
+            formControlName="idCard"
+            [ngClass]="{
+              'is-invalid': f['idCard'].errors && f['idCard'].touched
+            }"
+            required
+          />
+          <div *ngIf="f['idCard'].errors && f['idCard'].touched">
+            <small class="text-danger" *ngIf="f['idCard'].errors?.['required']"
+              >CMND/CCCD không được để trống</small
+            >
+            <small class="text-danger" *ngIf="f['idCard'].errors?.['minlength']"
+              >CMND/CCCD phải có tối thiểu 9 ký tự</small
+            >
+            <small class="text-danger" *ngIf="f['idCard'].errors?.['maxlength']"
+              >CMND/CCCD phải có tối đa 12 ký tự</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="email" class="col-sm-3 col-form-label"
+          >Địa chỉ email:</label
+        >
+        <div class="col-sm-9">
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            class="form-control"
+            placeholder="Nhập địa chỉ email"
+            formControlName="email"
+            [ngClass]="{
+              'is-invalid': f['email'].errors && f['email'].touched
+            }"
+            [(ngModel)]="user.email"
+            required
+          />
+          <div *ngIf="f['email'].errors && f['email'].touched">
+            <small class="text-danger" *ngIf="f['email'].errors?.['required']"
+              >Email không được để trống</small
+            >
+            <small class="text-danger" *ngIf="f['email'].errors?.['pattern']"
+              >Email không hợp lệ</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="voucherID" class="col-3 col-form-label dathue-giamgia"
+          >Nhập mã giảm giá:</label
+        >
+        <div class="row col-9 pe-0 datthue-buttongiamgia2">
+          <div class="col-7 mb-3 datthue-buttongiamgia1">
+            <input
+              type="text"
+              class="form-control"
+              id="voucherID"
+              name="voucherID"
+              formControlName="voucherID"
+              [(ngModel)]="khuyenmai.voucherID"
+              class="form-control"
+              placeholder="Mã giảm giá"
+            />
+          </div>
+          <div class="col-5 pe-0 text-end datthue-buttongiamgia">
+            <button
+              (click)="DatThueStu(studio._id)"
+              type="submit"
+              class="btn btn-warning text-light"
+            >
+              Dùng ngay
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mb-3">
+        <button
+          type="submit"
+          class="btn btn-warning text-light"
+          style="width: 150px"
+        >
+          Đặt thuê
+        </button>
+      </div>
+      <div class="text-center mb-5 font-italic">
+        <p class="fst-italic">
+          Bạn phải trả tiền đặt cọc = 50% tổng số tiền thuê
+        </p>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,275 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3 mt-3">
+    <div
+      class="shadow-sm p-3 mb-5 bg-white rounded sidebar"
+      style="height: 600px"
+    >
+      <div class="mt-2 row justify-content-left align-items-center">
+        <div class="col-4">
+          <img
+            src="http://localhost:3000/{{avatar}}"
+            class="rounded-circle"
+            style="height: 60px; width: 60px"
+          />
+        </div>
+        <div class="fw-bold col-3">{{ user.userName }}</div>
+      </div>
+      <hr style="color: black; height: 1px; width: 95%" />
+      <div>
+        <div class="d-flex align-items-center khuyenmai-sidebar rounded p-2" (click)="myAccount()">
+          <i class="fa-solid fa-user"></i>
+          <div>&nbsp; Tài khoản của tôi</div>
+        </div>
+      </div>
+      <div>
+        <div class="d-flex align-items-center khuyenmai-sidebar rounded p-2" (click)="datthue()">
+          <i class="fa fa-shopping-cart"></i>
+          <div>&nbsp; Đơn đặt thuê</div>
+        </div>
+      </div>
+      <div>
+        <div class="d-flex align-items-center khuyenmai-sidebar rounded p-2" (click)="thongbao()">
+          <i class="fa-solid fa-bell"></i>
+          <div>&nbsp; Thông báo</div>
+        </div>
+      </div>
+      <div>
+        <div class="d-flex align-items-center khuyenmai-sidebar rounded p-2" (click)="khuyenmai()">
+          <i class="fa fa-tag fa-lg"></i>
+          <div>&nbsp; Khuyến mãi</div>
+        </div>
+      </div>
+      <div>
+        <div class="d-flex align-items-center khuyenmai-sidebar rounded p-2" (click)="logOut()">
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+          <div>&nbsp; Đăng xuất</div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="col-9 ml-2 mt-3">
+      <div class="bg-dark text-white p-3 rounded fw-bold text-center">
+        <div>THÔNG TIN CÁ NHÂN</div>
+      </div>
+      <div class="shadow-sm p-3 mb-5 bg-white rounded mt-2 pb-5">
+        <div class="p-2">
+          <div class="row">
+            <form [formGroup]="regForm" (ngSubmit)="submitData(regForm.value)">
+              <div class="text-center mb-3">
+                <div  >
+                  <img
+                    src="http://localhost:3000/{{ avatar}}"
+                    class="rounded-circle mb-2"
+                    style="height: 80px; width: 80px"
+                  />
+                </div>
+                <div class="d-flex align-items-center justify-content-center" style="width: 500px; margin: auto">
+                  <label style="width: 100px" class="me-1">Chọn ảnh: </label>
+                  <input
+                    type="file"
+                    id="userAvatar"
+                    class="form-control"
+                    name="imgAvatar"
+                    [(ngModel)]="user.userAvatar"
+                    formControlName="userAvatar"
+                    (change)="onSelectFile($event)" 
+                  />
+                </div>
+              </div>
+              <div class="form-group row mb-3 align-items-center">
+                <i class="fa-solid fa-user col-1"></i>
+                <label
+                  for="userName"
+                  class="col-3 next-sidebar-title1 col-form-label"
+                  >Tên tài khoản</label
+                >
+                <div class="col-8 next-sidebar-title2">
+                  <input
+                    type="text"
+                    id="userName"
+                    name="userName"
+                    placeholder="Tên người dùng"
+                    class="form-control"
+                    formControlName="userName"
+                    [ngClass]="{
+                      'is-invalid':
+                        f['userName'].errors && f['userName'].touched
+                    }"
+                    [(ngModel)]="user.userName"
+                    required
+                  />
+                  <div *ngIf="f['userName'].errors && f['userName'].touched">
+                    <small
+                      class="text-danger"
+                      *ngIf="f['userName'].errors?.['required']"
+                      >Tên đăng nhập không được để trống</small
+                    ><br />
+                    <small
+                      class="text-danger"
+                      *ngIf="f['userName'].errors?.['minlength']"
+                      >Tên đăng nhập phải có tối thiểu 1 ký tự</small
+                    ><br />
+                    <small
+                      class="text-danger"
+                      *ngIf="f['userName'].errors?.['nameNotMatch']"
+                      >Tên đăng nhập không được chứa ký tự đặc biệt</small
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row mb-3 align-items-center">
+                <i class="fa fa-mars col-1"></i>
+                <label class="col-3 next-sidebar-title1 col-form-label"
+                  >Giới tính</label
+                >
+                <div class="col-5">
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      formControlName="gender"
+                      name="gender"
+                      id="man"
+                      [(ngModel)]="user.gender"
+                      value="Nam"
+                    />
+                    <label class="form-check-label">Nam</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      formControlName="gender"
+                      name="gender"
+                      id="woman"
+                      class="form-check-input"
+                      [(ngModel)]="user.gender"
+                      value="Nữ"
+                    />
+                    <label class="form-check-label">Nữ</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row mb-3 align-items-center">
+                <i class="fa fa-calendar col-1" aria-hidden="true"></i>
+                <label class="col-3 next-sidebar-title1 col-form-label"
+                  >Ngày sinh</label
+                >
+                <div class="col-8 next-sidebar-title2">
+                  <input
+                    type="date"
+                    class="form-control"
+                    formControlName="dateOfBirth"
+                    name="dateOfBirth"
+                    id="dateOfBirth"
+                    [(ngModel)]="user.dateOfBirth"
+                  />
+                </div>
+              </div>
+              <div class="form-group row mb-3 align-items-center">
+                <i class="fa-solid fa-phone col-1"></i>
+                <label class="col-3 next-sidebar-title1 col-form-label"
+                  >Số điện thoại</label
+                >
+                <div class="col-8 next-sidebar-title2">
+                  <input
+                    type="text"
+                    placeholder="Số điện thoại"
+                    class="form-control"
+                    name="phone"
+                    formControlName="phone"
+                    required
+                    [(ngModel)]="user.phone"
+                    [ngClass]="{
+                      'is-invalid': f['phone'].errors && f['phone'].touched
+                    }"
+                  />
+                  <div *ngIf="f['phone'].errors && f['phone'].touched">
+                    <small
+                      class="text-danger"
+                      *ngIf="f['phone'].errors?.['required']"
+                      >Số điện thoại không được để trống</small
+                    ><br />
+                    <small
+                      class="text-danger"
+                      *ngIf="f['phone'].errors?.['pattern']"
+                      >Số điện thoại không hợp lệ</small
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row mb-3 align-items-center">
+                <i class="fa fa-envelope col-1" aria-hidden="true"></i>
+                <label class="col-3 next-sidebar-title1 col-form-label"
+                  >Email</label
+                >
+                <div class="col-8 next-sidebar-title2">
+                  <input
+                    type="text"
+                    placeholder="Email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    formControlName="email"
+                    [(ngModel)]="user.email"
+                  />
+                  <div *ngIf="f['email'].errors && f['email'].touched">
+                    <small
+                      class="text-danger"
+                      *ngIf="f['email'].errors?.['pattern']"
+                      >Email không hợp lệ</small
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row mb-3 align-items-center">
+                <i class="fa-solid fa-key col-1"></i>
+                <label class="col-3 next-sidebar-title1 col-form-label"
+                  >Mật khẩu</label
+                >
+                <div class="col-8 next-sidebar-title2">
+                  <input
+                    type="password"
+                    placeholder="******"
+                    class="form-control"
+                    id="password"
+                    name="password"
+                    formControlName="password"
+                    [(ngModel)]="user.password"
+                    required
+                    [ngClass]="{
+                      'is-invalid':
+                        f['password'].errors && f['password'].touched
+                    }"
+                  />
+                  <div *ngIf="f['password'].errors && f['password'].touched">
+                    <small
+                      class="text-danger"
+                      *ngIf="f['password'].errors?.['required']"
+                      >Mật khẩu không được để trống</small
+                    >
+                    <small
+                      class="text-danger"
+                      *ngIf="f['password'].errors?.['minlength']"
+                      >Mật khẩu phải có tối thiểu 6 ký tự</small
+                    ><br />
+                    <small
+                      class="text-danger"
+                      *ngIf="f['password'].errors?.['maxlength']"
+                      >Mật khẩu phải có tối đa 40 ký tự</small
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="text-end">
+                <button type="submit" class="btn btn-primary button-mr">
+                  Lưu thay đổi
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

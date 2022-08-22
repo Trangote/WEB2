@@ -1,0 +1,377 @@
+<div class="pb-5" style="background-color: #242426">
+  <header class="header-container">
+    <img
+      class="banner"
+      src="http://localhost:3000/bannerstudio.png"
+      alt=""
+    />
+    <div class="text-header">
+      <div class="text-center text-white">
+        <p class="big-header">Cho thuê studio</p>
+        <p class="subtext-header">Tìm kiếm phong cách của bạn!</p>
+      </div>
+    </div>
+    <div class="top-product bg-light p-5">
+      <p class="top-text mb-5 mt-3">Top 3 studio có lượt cho thuê cao nhất</p>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4" *ngFor="let nb of studiosNB2 | slice: 0:3">
+            <div
+              class="card card-top mb-3" (click)="chitiet(nb)"
+             
+            >
+                <img
+                  src="http://localhost:3000/{{ nb.imgProduct1 }}"
+                  alt=""
+                  class="card-img-top card-custom-top"
+                />
+                <div class="card-body">
+                  <p class="card-title fw-bold">{{ nb.productName }}</p>
+                  <p class="card-text">{{ nb.style }}</p>
+                  <p class="card-text">{{ nb.album }}</p>
+                  <p class="card-price">{{ nb.unitPrice }} VND/ngày</p>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="body-content">
+    <div class="container">
+      <div class="row">
+        <div class="col col-md-4 col-lg-3">
+          <div class="filter-box bg-white p-4">
+            <form class="form-inline mb-4 text-left">
+              <p class="text-secondary font-weight-bold filter-title mb-4">
+                Bộ lọc
+              </p>
+              <div class="col mb-4">
+                <p class="text-secondary font-weight-bold filter-sub">
+                  Sắp xếp theo
+                </p>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="filtersapxep"
+                    id="filter_quantity"
+                    (ngModelChange)="sapxepQuantity()"
+                    [(ngModel)]="filter_other.filter_quantity"
+                    value="filter_quantity"
+                  />
+                  <label class="form-check-label" for="filter_quantity">
+                    Lượt thuê
+                  </label>
+                </div>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="filtersapxep"
+                    id="filter_price"
+                    (ngModelChange)="sapxepPrice()"
+                    [(ngModel)]="filter_other.filter_price"
+                    value="filter_price"
+                  />
+                  <label class="form-check-label" for="filter_price">
+                    Giá cả
+                  </label>
+                </div>
+              </div>
+              <div class="col mb-4">
+                <p class="text-secondary font-weight-bold filter-sub">
+                  Chọn theo Album
+                </p>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [(ngModel)]="filter_album.All_album"
+                    (ngModelChange)="selectAllAlbum()"
+                    name="All_album"
+                    id="All_album"
+                  />
+                  <label class="form-check-label" for="All_album">
+                    Tất cả
+                  </label>
+                </div>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [(ngModel)]="filter_album.Anh_cuoi"
+                    (ngModelChange)="filterChange()"
+                    name="Anh_cuoi"
+                    id="Anh_cuoi"
+                  />
+                  <label class="form-check-label" for="Anh_cuoi">
+                    Ảnh cưới
+                  </label>
+                </div>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [(ngModel)]="filter_album.Nghe_thuat"
+                    (ngModelChange)="filterChange()"
+                    name="Nghe_thuat"
+                    id="Nghe_thuat"
+                  />
+                  <label class="form-check-label" for="Nghe_thuat">
+                    Ảnh nghệ thuật
+                  </label>
+                </div>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [(ngModel)]="filter_album.Be_yeu"
+                    (ngModelChange)="filterChange()"
+                    name="Be_yeu"
+                    id="Be_yeu"
+                  />
+                  <label class="form-check-label" for="Be_yeu">
+                    Ảnh bé yêu
+                  </label>
+                </div>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [(ngModel)]="filter_album.Chan_dung"
+                    (ngModelChange)="filterChange()"
+                    name="Chan_dung"
+                    id="Chan_dung"
+                  />
+                  <label class="form-check-label" for="Chan_dung">
+                    Ảnh chân dung
+                  </label>
+                </div>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [(ngModel)]="filter_album.Gia_dinh"
+                    (ngModelChange)="filterChange()"
+                    name="Gia_dinh"
+                    id="Gia_dinh"
+                  />
+                  <label class="form-check-label" for="Gia_dinh">
+                    Ảnh gia đình
+                  </label>
+                </div>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [(ngModel)]="filter_album.Ba_bau"
+                    (ngModelChange)="filterChange()"
+                    name="Ba_bau"
+                    id="Ba_bau"
+                  />
+                  <label class="form-check-label" for="Ba_bau">
+                    Ảnh bà bầu
+                  </label>
+                </div>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [(ngModel)]="filter_album.Ky_yeu"
+                    (ngModelChange)="filterChange()"
+                    name="Ky_yeu"
+                    id="Ky_yeu"
+                  />
+                  <label class="form-check-label" for="Ky_yeu">
+                    Ảnh kỷ yếu
+                  </label>
+                </div>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [(ngModel)]="filter_album.Cap_doi"
+                    (ngModelChange)="filterChange()"
+                    name="Cap_doi"
+                    id="Cap_doi"
+                  />
+                  <label class="form-check-label" for="Cap_doi">
+                    Ảnh cặp đôi
+                  </label>
+                </div>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [(ngModel)]="filter_album.San_pham"
+                    (ngModelChange)="filterChange()"
+                    name="San_pham"
+                    id="San_pham"
+                  />
+                  <label class="form-check-label" for="San_pham">
+                    Ảnh sản phẩm
+                  </label>
+                </div>
+              </div>
+              <div class="col mb-4">
+                <p class="text-secondary font-weight-bold filter-sub">
+                  Phong cách
+                </p>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [(ngModel)]="filter_style.All_style"
+                    (ngModelChange)="selectAllStyle()"
+                    name="All_style"
+                    id="All_style"
+                  />
+                  <label class="form-check-label" for="All_style">
+                    Tất cả
+                  </label>
+                </div>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [(ngModel)]="filter_style.Vintage"
+                    (ngModelChange)="filterChange()"
+                    name="Vintage"
+                    id="Vintage"
+                  />
+                  <label class="form-check-label" for="Vintage">
+                    Vintage
+                  </label>
+                </div>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [(ngModel)]="filter_style.Hien_dai"
+                    (ngModelChange)="filterChange()"
+                    name="Hien_dai"
+                    id="Hien_dai"
+                  />
+                  <label class="form-check-label" for="Hien_dai">
+                    Hiện đại
+                  </label>
+                </div>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [(ngModel)]="filter_style.Hoang_gia"
+                    (ngModelChange)="filterChange()"
+                    name="Hoang_gia"
+                    id="Hoang_gia"
+                  />
+                  <label class="form-check-label" for="Hoang_gia">
+                    Hoàng gia
+                  </label>
+                </div>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [(ngModel)]="filter_style.Thien_nhien"
+                    (ngModelChange)="filterChange()"
+                    name="Thien_nhien"
+                    id="Thien_nhien"
+                  />
+                  <label class="form-check-label" for="Thien_nhien">
+                    Thiên nhiên
+                  </label>
+                </div>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [(ngModel)]="filter_style.Duong_pho"
+                    (ngModelChange)="filterChange()"
+                    name="Duong_pho"
+                    id="Duong_pho"
+                  />
+                  <label class="form-check-label" for="Duong_pho">
+                    Đường phố
+                  </label>
+                </div>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [(ngModel)]="filter_style.Toi_gian"
+                    (ngModelChange)="filterChange()"
+                    name="Toi_gian"
+                    id="Toi_gian"
+                  />
+                  <label class="form-check-label" for="Toi_gian">
+                    Tối giản
+                  </label>
+                </div>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [(ngModel)]="filter_style.Nghe_thuat"
+                    (ngModelChange)="filterChange()"
+                    name="Nghe_thuat"
+                    id="Nghe_thuat"
+                  />
+                  <label class="form-check-label" for="Nghe_thuat">
+                    Nghệ thuật
+                  </label>
+                </div>
+              </div>
+              <div class="form-button text-center mt-5">
+                <button class="btn btn-disco w-100 text-white btn-block" (click)="loadStudios()">
+                  Đặt lại
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col col-md-8 col-lg-9">
+          <div class="col mb-4">
+            <div class="input-group">
+              <div class="w-50">
+                <input
+                  type="search"
+                  id="form1"
+                  class="form-control"
+                  placeholder="Tìm kiếm"
+                  autocomplete="off"
+                  [(ngModel)]="searchText"
+                />
+              </div>
+              <button type="button" class="btn btn-primary btn-apply">
+                <i class="fas fa-search col-2"></i>
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-lg-6 col-xl-4" *ngFor="let p of studios3 | filter: searchText!">
+              <div
+                class="card mb-3" (click)="chitiet(p)"    
+              >
+                <img src="http://localhost:3000/{{ p.imgProduct1 }}" alt="" class="card-img-top" />
+                <div class="card-body">
+                  <p class="card-title fw-bold">{{ p.productName }}</p>
+                  <p class="card-text">{{ p.style }}</p>
+                  <p class="card-text">{{ p.album }}</p>
+                  <p class="card-price">{{ p.unitPrice }} VND/ngày</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="text-center text-light"
+            [ngClass]="{ 'd-block': iff, 'd-none': !iff }"
+          >
+            Không có kết quả tìm kiếm
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

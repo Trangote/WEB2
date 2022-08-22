@@ -1,0 +1,231 @@
+<div *ngIf="camera">
+  <div class="p-5">
+    <div class="d-flex justify-content-center flex-wrap">
+      <div
+        id="carouselExampleControls"
+        class="carousel slide text-center col-12 col-md text-md-left"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div
+            class="carousel-item active"
+            *ngFor="let p of images1; let i = index"
+            [ngClass]="{ active: i == 0 }"
+          >
+            <img src="http://localhost:3000/{{ p }}" class="d-block card-img-contain w-100"/>
+          </div>
+          <button
+            class="carousel-control-prev"
+            data-bs-target="#carouselExampleControls"
+            type="button"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            data-bs-target="#carouselExampleControls"
+            type="button"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="ms-3 text-center col-12 col-md d-md-flex align-items-start flex-column"
+      >
+        <h2 class="mb-3">{{ camera.productName }}</h2>
+        <p class="mb-1">
+          Giá thuê:
+          <span class="text-danger fw-bold"
+            >{{ camera.unitPrice }} VNĐ/ngày</span
+          >
+        </p>
+        <p>
+          Số lượng:
+          <button
+            style="
+              width: 30px;
+              border: 2px solid #a7a7a7;
+              background-color: #a7a7a7;
+            "
+            class="rounded text-white fw-bold"
+            (click)="giamSanPham()"
+          >
+            -
+          </button>
+          <input
+            type="text"
+            style="width: 30px; border: 2px solid #a7a7a7"
+            readonly
+            id="soLuongSanPham"
+            name="soLuongSanPham"
+            [(ngModel)]="cong"
+            class="text-center rounded"
+          />
+          <button
+            style="
+              width: 30px;
+              border: 2px solid #a7a7a7;
+              background-color: #a7a7a7;
+            "
+            class="rounded text-white fw-bold"
+            (click)="tangSanPham()"
+          >
+            +
+          </button>
+        </p>
+        <button class="btn btn-warning fw-bold text-white mt-2" (click)="DatThueCam(camera._id)" [disabled]="isDisable">
+          Đặt thuê
+        </button>
+      </div>
+    </div>
+    <div class="mt-5">
+      <h3>Tính năng thông số kỹ thuật</h3>
+      <hr style="width: 300px" />
+      <div class="d-flex flex-wrap justify-content-center">
+        <div>
+          <img
+            src="http://localhost:3000/{{ camera.imgProduct4 }}"
+            class="me-5 mb-3 pro-img-detail"
+          />
+        </div>
+        <div class="col-xs-10 col-sm-10 col-lg-5">
+          <h3 class="mb-3">Đặc điểm sản phẩm</h3>
+          <div>
+            <p>Nhà sản xuất: {{ camera.brand }}</p>
+            <p>Loại máy ảnh: {{ camera.type }}</p>
+            <p>Xuất xứ: {{ camera.origin }}</p>
+            <p>Model: {{ camera.model }}</p>
+            <p>{{ camera.productDescription }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-4">
+      <h3>Sản phẩm tương tự</h3>
+      <hr style="width: 300px" />
+      <div class="d-flex flex-wrap align-items-center justify-content-center">
+        <div
+          class="card me-sm-5 mb-3 img-hover"
+          style="width: 15rem"
+          *ngFor="let p of tuongTuCameras | slice: 0:4"
+          (click)="tuongTu(p._id)"
+        >
+          <img class="card-img-top mx-auto d-block" src="http://localhost:3000/{{ p.imgProduct1 }}" />
+          <div class="card-body">
+            <p class="card-text text-center fw-bold">{{ p.productName }}</p>
+            <p class="text-center text-secondary">
+              {{ p.model }}, {{ p.origin }} <br />
+              Thương hiệu {{ p.brand }}
+            </p>
+            <p class="text-center text-warning fw-bold">
+              {{ p.unitPrice }} VNĐ/ngày
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="studio">
+  <div class="p-5">
+    <div class="d-flex justify-content-center flex-wrap">
+      <div
+        id="carouselExampleControls"
+        class="carousel slide text-center col-12 col-md text-md-left"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div
+            class="carousel-item active"
+            *ngFor="let p of images2; let i = index"
+            [ngClass]="{ active: i == 0 }"
+          >
+            <img src="http://localhost:3000/{{ p }}" class="d-block w-100 card-img-cover" />
+          </div>
+          <button
+            class="carousel-control-prev"
+            data-bs-target="#carouselExampleControls"
+            type="button"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            data-bs-target="#carouselExampleControls"
+            type="button"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="ms-3 text-center col-12 col-md d-md-flex align-items-start flex-column"
+      >
+        <h2 class="mb-3">{{ studio.productName }}</h2>
+        <p class="mb-1">
+          Giá thuê:
+          <span class="text-danger fw-bold"
+            >{{ studio.unitPrice }} VNĐ/ngày</span
+          >
+        </p>
+        <button class="btn btn-warning fw-bold text-white mt-2" (click)="DatThueStu(studio._id)" [disabled]="isDisable">
+          Đặt thuê
+        </button>
+      </div>
+    </div>
+    <div class="mt-5">
+      <h3>Đặc điểm Studio</h3>
+      <hr style="width: 300px" />
+      <div class="d-flex flex-wrap justify-content-center">
+        <div>
+          <img
+            src="http://localhost:3000/{{ studio.imgProduct4 }}"
+            class="me-5 mb-3 pro-img-detail"
+          />
+        </div>
+        <div class="col-xs-10 col-sm-10 col-lg-5">
+          <h3 class="mb-3">Đặc điểm Studio</h3>
+          <div>
+            <p>Phong cách: {{ studio.style }}</p>
+            <p>Phù hợp chụp ảnh: {{ studio.album }}</p>
+            <p></p>
+            <p>{{ studio.productDescription }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-4">
+      <h3>Sản phẩm tương tự</h3>
+      <hr style="width: 300px" />
+      <div class="d-flex flex-wrap align-items-center justify-content-center">
+        <div
+          class="card me-sm-5 mb-3 img-hover"
+          style="width: 15rem"
+          *ngFor="let p of tuongTuStudios | slice: 0:4"
+          (click)="tuongTu(p._id)"
+        >
+          <img class="card-img-top mx-auto d-block" src="http://localhost:3000/{{ p.imgProduct1 }}" />
+          <div class="card-body">
+            <p class="card-text text-center fw-bold">{{ p.productName }}</p>
+            <p class="text-center text-secondary">
+              {{ p.style }} <br />
+              Phù hợp chụp {{ p.album }}
+            </p>
+            <p class="text-center text-warning fw-bold">
+              {{ p.unitPrice }} VNĐ/ngày
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

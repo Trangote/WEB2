@@ -1,0 +1,174 @@
+<div class="container-fluid dangKy__container mb-5">
+  <form [formGroup]="regForm" (ngSubmit)="submitData()">
+    <div class="row">
+      <div class="col-lg-4 d-sm-none d-none d-lg-block" style="background-size: cover; background-image: url('https://blogger.googleusercontent.com/img/a/AVvXsEiJir-XWF7JthGLyz6BBWgkxsY7XwHwM-ZBOLMdkWqwIqWrs9FibvzVzUdmTHXmPs1Fbi_PwOoIZYtfEwVw9EoYdVnfoVAETmQo847zxBtJq7SZ31AkfGStz6Tymh6EIr7zmmZm6JGhUsg8Vlz9EzaGAbSqsORxAMGS9KCClYXOOIqxBQtiYsFn0vNFYw=s0');">
+      </div>
+      <div class="col-lg-8 dangKy__right pt-4 container-fluid">
+        <h4 class="text-center fw-bold">ĐĂNG KÝ TÀI KHOẢN</h4>
+        <div class="mb-3">
+          <label for="userName"
+            >Tên đăng nhập <span class="text-danger">*</span></label
+          >
+          <div>
+            <input
+              type="text"
+              id="userName"
+              name="userName"
+              class="form-control"
+              placeholder="Tên đăng nhập"
+              formControlName="userName"
+              [ngClass]="{
+                'is-invalid': f['userName'].errors && f['userName'].touched
+              }"
+            />
+            <div *ngIf="f['userName'].errors && f['userName'].touched">
+              <small
+                class="text-danger"
+                *ngIf="f['userName'].errors?.['required']"
+                >Tên đăng nhập không được để trống</small
+              ><br />
+              <small
+                class="text-danger"
+                *ngIf="f['userName'].errors?.['minlength']"
+                >Tên đăng nhập phải có tối thiểu 1 ký tự</small
+              ><br />
+              <small
+                class="text-danger"
+                *ngIf="f['userName'].errors?.['nameNotMatch']"
+                >Tên đăng nhập không được chứa ký tự đặc biệt</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="password"
+            >Mật khẩu <span class="text-danger">*</span></label
+          >
+          <div>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-control"
+              placeholder="*********"
+              formControlName="password"
+              [ngClass]="{
+                'is-invalid': f['password'].errors && f['password'].touched
+              }"
+            />
+            <div *ngIf="f['password'].errors && f['password'].touched">
+              <small
+                class="text-danger"
+                *ngIf="f['password'].errors?.['required']"
+                >Mật khẩu không được để trống</small
+              >
+              <small
+                class="text-danger"
+                *ngIf="f['password'].errors?.['minlength']"
+                >Mật khẩu phải có tối thiểu 6 ký tự</small
+              ><br />
+              <small
+                class="text-danger"
+                *ngIf="f['password'].errors?.['maxlength']"
+                >Mật khẩu phải có tối đa 40 ký tự</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="confirmPass"
+            >Nhập lại mật khẩu <span class="text-danger">*</span></label
+          >
+          <div>
+            <input
+              type="password"
+              id="confirmPass"
+              name="confirmPass"
+              class="form-control"
+              formControlName="confirmPass"
+              placeholder="*********"
+              [class.is-invalid]="regForm.errors?.['misMatch']"
+              required
+            />
+
+            <small class="text-danger" *ngIf="regForm.errors?.['required']"
+              >Mật khẩu nhập lại không được để trống</small
+            >
+            <small class="text-danger" *ngIf="regForm.errors?.['misMatch']"
+              >Mật khẩu nhập lại phải trùng với mật khẩu</small
+            >
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="fullName"
+            >Họ tên <span class="text-danger">*</span></label
+          >
+          <div>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              class="form-control"
+              placeholder="Họ tên"
+              formControlName="fullName"
+              [ngClass]="{
+                'is-invalid': f['fullName'].errors && f['fullName'].touched
+              }"
+            />
+            <div *ngIf="f['fullName'].errors && f['fullName'].touched">
+              <small
+                class="text-danger"
+                *ngIf="f['fullName'].errors?.['required']"
+                >Họ tên không được để trống</small
+              ><br />
+              <small
+                class="text-danger"
+                *ngIf="f['fullName'].errors?.['minlength']"
+                >Họ tên phải có tối thiểu 1 ký tự</small
+              ><br />
+              <small
+                class="text-danger"
+                *ngIf="f['fullName'].errors?.['nameNotMatch']"
+                >Họ tên không được chứa ký tự đặc biệt</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="phone"
+            >Số điện thoại <span class="text-danger">*</span></label
+          >
+          <div>
+            <input
+              type="text"
+              id="phone"
+              name="phone"
+              class="form-control"
+              placeholder="Số điện thoại"
+              formControlName="phone"
+              required
+              [ngClass]="{
+                'is-invalid': f['phone'].errors && f['phone'].touched
+              }"
+            />
+            <div *ngIf="f['phone'].errors && f['phone'].touched">
+              <small class="text-danger" *ngIf="f['phone'].errors?.['required']"
+                >Số điện thoại không được để trống</small
+              ><br />
+              <small
+                class="text-danger"
+                *ngIf="f['phone'].errors?.['pattern']"
+                >Số điện thoại không hợp lệ</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="mb-3 text-center">
+          <button class="text-white btn bg-dark rounded" type="submit">
+            Đăng ký
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

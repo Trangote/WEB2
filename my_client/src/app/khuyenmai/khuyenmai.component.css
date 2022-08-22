@@ -1,0 +1,27 @@
+.khuyenmai-sidebar:hover{
+    background-color: #242424;
+    color: white;
+}
+.khuyenmai{
+    width: 99% !important;
+}
+@media only screen and (max-width: 600px) {
+ .khuyenmai-1{
+     width: 100% !important;
+ }
+}
+
+@media only screen and (max-width: 768px) {
+  .sidebar{
+      display: none;
+  }
+  .next-sidebar{
+     width: 100% !important; 
+  }
+}
+
+@media only screen and (max-width: 992px) {
+    .khuyenmai-1{
+        width: 100% !important;
+    }
+}

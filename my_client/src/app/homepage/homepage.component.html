@@ -1,0 +1,107 @@
+<div class="bg-dark">
+  <div class="album-container">
+    <img
+      class="img-banner"
+      src="https://blogger.googleusercontent.com/img/a/AVvXsEhKayT1VX2liCVJWjL9Kuf_2sKfK_7AnhKDRKqsvslAJmXfT26byFXOZxR0QY4fUFsN7vrxWGjcF71FWXYDRZPsqCgp1AlcQ25f1ay2xrYzDmfgxmFqcMULfiDaiRP7LRkwtD06eiVvJzTWJrTQCgV3-4u5QFm2GWGXtB4FMeJa_gBXHzZrMgx4YuVo=s0"
+    />
+    <div class="centered text-black">
+      <img
+        class="mb-3"
+        src="https://blogger.googleusercontent.com/img/a/AVvXsEiBlMAke0FNvkUSmIA89-9damtiUt5X5Fmvpk3Rt_ig_1Mk8Ok_gLxU4HteNaF8H51UrWFcVEJkVWvJALFwNYgSGAjwytbMMHaGYZR3Agqg1N6B4NvQQwpK52PXUoFwo_XcYKdi7NRfZfiBFYCW-Lw13w21H3pX_1Kp3cxwXZZ1JuDqii5hoeYEzw33"
+      />
+      <h1 class="fst-italic fw-bold">Tách Studio</h1>
+      <h3>Địa điểm cho thuê studio chụp ảnh, quay phim chất lượng</h3>
+      <p>
+        UEL, Tp. Thủ Đức, Tp. Hồ Chí Minh <br />
+        Call us: 0123 456 789 <br />
+        tachstudio@gmail.com
+      </p>
+    </div>
+  </div>
+  <div class="mt-4">
+    <div class="text-center text-white p-3">
+      <h2>GIỚI THIỆU VỀ WEBSITE</h2>
+      <p>
+        Tách Studio là một công ty start-up tập trung lĩnh vực cho thuê máy ảnh
+        và studio. <br />
+        Đến với Tách, bạn sẽ nhận được chất lượng sản phẩm cũng như chất lượng
+        phục vụ trên cả tuyệt vời.
+      </p>
+    </div>
+    <div class="d-flex flex-wrap justify-content-center">
+      <div class="card me-sm-5 mb-3" style="width: 18rem">
+        <img
+          class="card-img-top mx-auto d-block img-hover"
+          src="https://blogger.googleusercontent.com/img/a/AVvXsEgco1njeOgFuO0aRNTP5L747E_tlPH3HRc1uRVBWHY9cux0elFYJQ4e4E1UqIunMByAfOzKgzHczFKXxrKybP060OA9imcWp6DWt0LFliL4gDl02pxB7NXPo7Wdik0rKr71fpe_bvDGehqPwYFdl-ZuMsaKsyshSbMKlgiA_U5AO1IN0tk6327q6LGM=s0"
+        />
+        <div class="card-body">
+          <p class="card-text text-center fw-bold">CHO THUÊ MÁY ẢNH</p>
+        </div>
+      </div>
+      <div class="card me-sm-5 mb-3" style="width: 18rem">
+        <img
+          class="card-img-top mx-auto d-block img-hover"
+          src="https://images.pexels.com/photos/7412111/pexels-photo-7412111.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        />
+        <div class="card-body">
+          <p class="card-text text-center fw-bold">CHO THUÊ STUDIO</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4">
+    <img
+      src="https://blogger.googleusercontent.com/img/a/AVvXsEickSmBgGQEpH_ZWHSQUpUNFJEouwrmSdAMq8InyC7zI0biArwc-L36qLrnZXFtoXBo6B1yF4-XyXFMck8v6DmUaK-3BNFpwGJ8E4cQdVlV3c5UBldOPQmr629qXj1NVLeZb7IWO9yqIVLcBQGRSEKvjDjkiJvwfFd7ZWWTUql97w_zK6e-nHhquwpB=s0"
+      class="mx-auto d-block line-decoration"
+    />
+    <h2 class="text-white text-center mt-4 mb-4">
+      SẢN PHẨM NỔI BẬT CỦA TÁCH STUDIO
+    </h2>
+    <div class="d-flex flex-wrap justify-content-center">
+      <div
+        class="card me-sm-5 mb-3 img-hover"
+        style="width: 15rem"
+        *ngFor="let p of cameras2 | slice: 0:4"
+      >
+      <div (click)="chitiet(p)">
+          <img class="card-img-top mx-auto d-block" src="http://localhost:3000/{{ p.imgProduct1 }}" />
+          <div class="card-body">
+            <p class="card-text text-center fw-bold">{{ p.productName }}</p>
+            <p class="text-center text-secondary">
+              {{ p.brand }},{{ p.origin }} <br />
+            {{ p.type }}
+            </p>
+            <p class="text-center text-warning fw-bold">
+              {{ p.unitPrice }} VND/ngày
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2 class="text-white text-center mt-4">
+      DỊCH VỤ NỔI BẬT CỦA TÁCH STUDIO
+    </h2>
+    <div class="d-flex flex-wrap justify-content-center">
+      <div
+        class="card me-sm-5 mb-3 img-hover"
+        style="width: 15rem"
+        *ngFor="let p of studios2 | slice: 0:4"
+      >
+      <div (click)="chitiet2(p)">
+          <img class="card-img-top mx-auto d-block" src="http://localhost:3000/{{ p.imgProduct1 }}" />
+          <div class="card-body">
+            <p class="card-text text-center fw-bold">{{ p.productName }}</p>
+            <p class="text-center text-secondary">
+              {{ p.style }}
+              <br />
+              Phù hợp chụp {{ p.album }}
+            </p>
+            <p class="text-center text-warning fw-bold">
+              {{ p.unitPrice }} VND/ngày
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

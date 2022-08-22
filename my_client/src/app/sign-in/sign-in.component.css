@@ -1,0 +1,51 @@
+.dangNhap__btn--img {
+    width: 15%;
+  }
+  @media only screen and (max-width: 390px) {
+    .dangNhap__right {
+      width: 90%;
+    }
+    .dangNhap__btn--fb {
+      margin-bottom: 10px;
+      width: 58%;
+    }
+    .dangNhap__btn {
+      margin-bottom: 15px;
+    }
+    .dangNhap__container {
+      border: solid 1px rgb(192, 191, 191);
+      width: 350px !important;
+    }
+    
+  }
+  @media only screen and (max-width: 600px) {
+    .dangNhap__bg--img {
+      width: 100%;
+    }
+  }
+  @media only screen and (min-width: 600px) {
+    .dangNhap__bg--img {
+      width: 100%;
+    }
+    .dangNhap__right {
+      width: 70%;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    .dangNhap__container {
+      border: solid 1px rgb(192, 191, 191);
+      width: 700px !important;
+    }
+  }
+  @media only screen and (min-width: 992px) {
+    .dangNhap__bg--img {
+      width: 130%;
+    }
+    .dangNhap__right {
+      width: 50%;
+    }
+    .dangNhap__container {
+      border: solid 1px rgb(192, 191, 191);
+      width: 1000px !important;
+    }
+  }

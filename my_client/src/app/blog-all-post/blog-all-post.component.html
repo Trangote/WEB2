@@ -1,0 +1,148 @@
+<div class="bg-dark container-fluid">
+  <div class="">
+    <hr class="text-white my-1" />
+    <div class="text-white fs-5 d-flex justify-content-around">
+      <div class="py-3" (click)="chuyentach()" style="cursor: pointer">Giới thiệu</div>
+      <div class="h3 py-3">Tách Blog</div>
+      <div class="py-3">Chuyện của Tách</div>
+    </div>
+    <hr class="text-white my-1" />
+    <div class="d-flex blog__allpost--container container-fluid">
+      <div class="row blog__allpost--left">
+        <div class="row">
+          <div
+            class="col-12 col-sm-6 col-md-6 col-lg-4 p-4"
+            *ngFor="let p of blogs"
+          >
+            <div class="bg-white card p-2" (click)="chitiet(p)">
+              <div class="">
+                <img
+                  src="{{ p.imgblog }}"
+                  alt=""
+                  class="w-100 tag__img card-img-top" style="object-fit: cover;"
+                />
+              </div>
+              <div class="d-flex justify-content-center mt-2">
+                <div class="me-2">
+                  <img src="{{ p.imgblog1 }}" alt="" />
+                </div>
+                <div class="blog__font-size">
+                  <div>{{ p.adminName }}</div>
+                  <div>{{ p.timeUpload }}</div>
+                </div>
+              </div>
+              <div class="text-center fw-bold mt-2">
+                <a href="" class="text-decoration-none">{{ p.blogTitle }}</a>
+              </div>
+              <div
+                class="blog__post--text blog__font-size px-2 blog__tag--hide"
+              >
+                {{ p.blogText }}
+              </div>
+              <hr class="mx-3 my-2" />
+              <div class="d-flex my-1 justify-content-between px-2">
+                <div class="d-flex">
+                  <div class="d-flex blog__tag--seen">
+                    <div class="">
+                      <img src="{{ p.blogView }}" alt="" class="mx-1" />
+                    </div>
+                    <div class="">100</div>
+                  </div>
+                  <div class="d-flex">
+                    <div class="">
+                      <img src="{{ p.blogComment }}" alt="" class="mx-2" />
+                    </div>
+                    <div>10</div>
+                  </div>
+                </div>
+                <div class="d-flex blog__tag--heart">
+                  <div class="mx-2">50</div>
+                  <div>
+                    <img src="{{ p.blogTym }}" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="bg-white text-dark py-4 blog__allpost--right mt-2 rounded">
+          <div
+            class="bg-dark text-white text-center blog__allpost--title position-absolute"
+          >
+            CHỦ ĐỀ
+          </div>
+          <div
+            class="border border-dark blog__post--border py-5 px-4 mb-5 position-relative"
+          >
+            <div>
+              <div class="form-check mb-3">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  [(ngModel)]="filter_chude.All_chude"
+                  (ngModelChange)="selectAllChude()"
+                  name="All_chude"
+                  id="All_chude"
+                />
+                <label class="form-check-label" for="All_type"> Tất cả </label>
+              </div>
+              <div class="form-check mb-3">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  [(ngModel)]="filter_chude.Chu_de_chup"
+                  (ngModelChange)="filterChange()"
+                  name="Chu_de_chup"
+                  id="Chu_de_chup"
+                />
+                <label class="form-check-label" for="May_anh_co">
+                  Chủ đề chụp
+                </label>
+              </div>
+              <div class="form-check mb-3">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  [(ngModel)]="filter_chude.Mot_so_dia_diem_chup_hinh_dep"
+                  (ngModelChange)="filterChange()"
+                  name="Mot_so_dia_diem_chup_hinh_dep"
+                  id="Mot_so_dia_diem_chup_hinh_dep"
+                />
+                <label class="form-check-label" for="May_anh_co">
+                  Một số địa điểm chụp hình đẹp
+                </label>
+              </div>
+              <div class="form-check mb-3">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  [(ngModel)]="filter_chude.Tip_can_biet_khi_chup"
+                  (ngModelChange)="filterChange()"
+                  name="Tip_can_biet_khi_chup"
+                  id="Tip_can_biet_khi_chup"
+                />
+                <label class="form-check-label" for="May_anh_co">
+                  Tips chụp ảnh đẹp
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-dark text-white text-center blog__allpost--newpost position-absolute"
+          >
+            BÀI VIẾT MỚI NHẤT
+          </div>
+          <div
+            class="border border-dark blog__post--border px-3 py-5 position-relative"
+          >
+            <div *ngFor="let b of blogs | slice: 0:3">
+              <div (click)="chitiet(b)" style="cursor: pointer">{{ b.blogTitle }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+@media only screen and (max-width: 768px) {
+    .bang-respon{
+        width: 100% !important;
+    }
+    .form-respon{
+        width: 100% !important;
+    }
+   }

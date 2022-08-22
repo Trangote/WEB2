@@ -1,0 +1,295 @@
+<div class="container p-5">
+  <div class="p-3 shadow-sm mb-5 bg-white rounded min-vh-100">
+    <div
+      class="rounded text-center fw-bold text-white p-3 mb-3"
+      style="background-color: #f2c806"
+    >
+      <div>THÊM MÁY ẢNH</div>
+    </div>
+    <form [formGroup]="regForm" (ngSubmit)="submitData(regForm.value)">
+      <div class="mb-3 row">
+        <div class="col-md-6">
+          <label for="productName" class="mb-2"
+            >1. Tên máy ảnh <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            id="productName"
+            name="productName"
+            placeholder="Tên máy ảnh"
+            required
+            class="form-control"
+            [(ngModel)]="camera.productName"
+            formControlName="productName"
+            [ngClass]="{
+              'is-invalid': f['productName'].errors && f['productName'].touched
+            }"
+          />
+          <div *ngIf="f['productName'].errors && f['productName'].touched">
+            <small
+              class="text-danger"
+              *ngIf="f['productName'].errors?.['required']"
+              >Tên máy ảnh không được để trống</small
+            ><br />
+            <small
+              class="text-danger"
+              *ngIf="f['productName'].errors?.['minlength']"
+              >Tên máy ảnh phải có tối thiểu 4 ký tự</small
+            ><br />
+            <small
+              class="text-danger"
+              *ngIf="f['productName'].errors?.['nameNotMatch']"
+              >Tên máy ảnh không được chứa ký tự đặc biệt</small
+            >
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="unitPrice" class="mb-2"
+            >2. Giá máy ảnh <span class="text-danger">*</span></label
+          >
+          <input
+            type="number"
+            id="unitPrice"
+            name="unitPrice"
+            placeholder="Giá máy ảnh"
+            required
+            class="form-control"
+            formControlName="unitPrice"
+            [(ngModel)]="camera.unitPrice"
+            [ngClass]="{
+              'is-invalid': f['unitPrice'].errors && f['unitPrice'].touched
+            }"
+          />
+          <div *ngIf="f['unitPrice'].errors && f['unitPrice'].touched">
+            <small
+              class="text-danger"
+              *ngIf="f['unitPrice'].errors?.['required']"
+              >Giá máy ảnh không được để trống</small
+            ><br />
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="mb-2" for="brand"
+            >3. Nhà sản xuất <span class="text-danger">*</span></label
+          >
+          <select
+            id="brand"
+            name="brand"
+            class="form-control"
+            required
+            formControlName="brand"
+            [(ngModel)]="camera.brand"
+            [ngClass]="{
+              'is-invalid': f['brand'].errors && f['brand'].touched
+            }"
+          >
+            <option>Canon</option>
+            <option>Nikon</option>
+            <option>Sony</option>
+            <option>Kodak</option>
+            <option>FujiFilm</option>
+          </select>
+          <div *ngIf="f['brand'].invalid && f['brand'].touched">
+            <small class="text-danger" *ngIf="f['brand'].errors?.['required']"
+              >Nhà sản xuất không được để trống</small
+            >
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label class="mb-2" for="type"
+            >4. Loại máy ảnh <span class="text-danger">*</span></label
+          >
+          <select
+            id="type"
+            name="type"
+            class="form-control"
+            required
+            formControlName="type"
+            [(ngModel)]="camera.type"
+            [ngClass]="{ 'is-invalid': f['type'].errors && f['type'].touched }"
+          >
+            <option>Máy ảnh cơ</option>
+            <option>Máy ảnh du lịch</option>
+            <option>Máy ảnh bridge</option>
+            <option>Máy ảnh số</option>
+          </select>
+          <div *ngIf="f['type'].invalid && f['type'].touched">
+            <small class="text-danger" *ngIf="f['type'].errors?.['required']"
+              >Loại máy ảnh không được để trống</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="origin" class="mb-2"
+            >5. Xuất xứ máy ảnh <span class="text-danger">*</span></label
+          >
+          <input
+            id="origin"
+            name="origin"
+            type="text"
+            placeholder="Xuất xứ máy ảnh"
+            required
+            class="form-control"
+            formControlName="origin"
+            [(ngModel)]="camera.origin"
+            [ngClass]="{
+              'is-invalid': f['origin'].errors && f['origin'].touched
+            }"
+          />
+          <div *ngIf="f['origin'].invalid && f['origin'].touched">
+            <small class="text-danger" *ngIf="f['origin'].errors?.['required']"
+              >Xuất xứ máy ảnh không được để trống</small
+            >
+            <small
+              class="text-danger"
+              *ngIf="f['origin'].errors?.['nameNotMatch']"
+              >Xuất xứ máy ảnh không được chứa ký tự đặc biệt</small
+            >
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="model" class="mb-2"
+            >6. Model máy ảnh <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            placeholder="Model máy ảnh"
+            required
+            id="model"
+            class="form-control"
+            name="model"
+            formControlName="model"
+            [(ngModel)]="camera.model"
+            [ngClass]="{
+              'is-invalid': f['model'].errors && f['model'].touched
+            }"
+          />
+          <div *ngIf="f['model'].invalid && f['model'].touched">
+            <small class="text-danger" *ngIf="f['model'].errors?.['required']"
+              >Model máy ảnh không được để trống</small
+            >
+            <small
+              class="text-danger"
+              *ngIf="f['model'].errors?.['nameNotMatch']"
+              >Mô hình máy ảnh không được chứa ký tự đặc biệt</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label mb-1"
+          >7. Thêm ảnh của máy ảnh <span class="text-danger">*</span></label
+        >
+        <div class="mb-2">
+          <i>Ảnh 1, 2, 3: Ảnh của sản phẩm; Ảnh 4: Thông số kỹ thuật</i>
+        </div>
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <small>7.1. Ảnh 1</small>
+            <input
+              type="file"
+              id="imgProduct1"
+              class="form-control"
+              name="imgProduct1"
+              [(ngModel)]="camera.imgProduct1"
+              formControlName="imgProduct1"
+              (change)="onSelectFile1($event)"
+            />
+          </div>
+          <div class="col-md-6">
+            <small>7.2. Ảnh 2</small>
+            <input
+              type="file"
+              id="imgProduct2"
+              class="form-control"
+              name="imgProduct2"
+              [(ngModel)]="camera.imgProduct2"
+              formControlName="imgProduct2"
+              (change)="onSelectFile2($event)"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <small>7.3. Ảnh 3</small>
+            <input
+              type="file"
+              id="imgProduct3"
+              class="form-control"
+              name="imgProduct3"
+              [(ngModel)]="camera.imgProduct3"
+              formControlName="imgProduct3"
+              (change)="onSelectFile3($event)"
+            />
+          </div>
+          <div class="col-md-6">
+            <small>7.4. Ảnh 4</small>
+            <input
+              type="file"
+              id="imgProduct4"
+              class="form-control"
+              name="imgProduct4"
+              [(ngModel)]="camera.imgProduct4"
+              formControlName="imgProduct4"
+              (change)="onSelectFile4($event)"
+            />
+          </div>
+        </div>
+      </div>
+      <div>
+        <label for="productDescription" class="mb-2"
+          >8. Mô tả máy ảnh <span class="text-danger">*</span></label
+        >
+        <textarea
+          class="form-control"
+          rows="6"
+          id="productDescription"
+          name="productDescription"
+          required
+          [(ngModel)]="camera.productDescription"
+          formControlName="productDescription"
+          [ngClass]="{
+            'is-invalid':
+              f['productDescription'].errors && f['productDescription'].touched
+          }"
+        >
+        </textarea>
+        <div
+          *ngIf="
+            f['productDescription'].invalid && f['productDescription'].touched
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="f['productDescription'].errors?.['required']"
+            >Mô tả máy ảnh không được để trống</small
+          >
+          <small
+            class="text-danger"
+            *ngIf="f['productDescription'].errors?.['minlength']"
+            >Mô tả phải có tối thiểu 50 ký tự</small
+          >
+        </div>
+      </div>
+      <div class="text-center mt-3">
+        <button
+          class="btn btn-warning text-white"
+          type="submit"
+          [disabled]="
+            regForm.invalid ||
+            !imgProduct1 ||
+            !imgProduct2 ||
+            !imgProduct3 ||
+            !imgProduct4
+          "
+        >
+          Thêm sản phẩm
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

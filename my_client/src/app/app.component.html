@@ -1,0 +1,128 @@
+<html>
+  <head> </head>
+  <body>
+    <div class="header-page">
+      <nav
+        class="navbar navbar-expand navbar-light bg-light navbar-inverse fixed-top"
+      >
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="user">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="homepage" routerLinkActive="active"
+              >Trang chủ</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="cameralist" routerLinkActive="active"
+              >Máy ảnh</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="studiolist" routerLinkActive="active"
+              >Studio</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="albumlist" routerLinkActive="active"
+              >Album</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="blogallpost" routerLinkActive="active"
+              >Blog</a
+            >
+          </li>
+        </ul>
+        <!-- admin -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="admin">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="upcam" routerLinkActive="active"
+              >Thêm máy ảnh</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="upstu" routerLinkActive="active"
+              >Thêm studio</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="updatestu" routerLinkActive="active"
+              >Chỉnh sửa studio</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="updatecam" routerLinkActive="active"
+              >Chỉnh sửa máy ảnh</a
+            >
+          </li>
+        </ul>
+        <span *ngIf="!admin">
+          <img src="http://localhost:3000/user.png" (click)="getUser()" style="height: 30px; width: 30px;">
+        </span>
+        <span *ngIf="admin" style="cursor: pointer;" class="me-2">
+          <div (click)="Logout()">Đăng xuất</div>
+        </span>
+      
+      </nav>
+      <div style="margin-top: 56px">
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+    <hr style="height:2px;border-width:0;color:white;background-color:black;margin:0">
+    <footer class="w-100 py-4 flex-shrink-0 background bg-dark">
+      <div class="container py-4">
+        <div class="row gy-4 gx-5">
+          <div class="col-lg-4 col-md-6">
+            <h5 class="text-white">Tách Studio</h5>
+            <p class="small text-muted">Tách Studio là một cơ sở cho thuê máy ảnh và dịch vụ chụp ảnh, cung cấp đa dạng loại hình dịch vụ giúp khách hàng có thể dễ dàng tìm kiếm sản phẩm, dịch vụ chụp ảnh mà mình mong muốn.</p>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5 class="text-white mb-3">Liên kết nhanh</h5>
+            <ul class="list-unstyled text-muted">
+              <li class="small"><a href="homepage">Trang chủ</a></li>
+              <li class="small"><a routerLink="cameralist">Máy ảnh</a></li>
+              <li class="small"><a routerLink="studiolist">Studio</a></li>
+              <li class="small"><a routerLink="albumlist">Album</a></li>
+              <li class="small"><a routerLink="blogallpost">Blog</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <h5 class="text-white mb-3">Liên hệ</h5>
+            <ul class="list-unstyled text-muted">
+              <li class="small d-flex align-items-center">
+                <i class="fa-solid fa-house"></i>
+                <div>&nbsp;UEL,Tp.Thủ Đức</div>
+              </li>
+              <li class="small d-flex align-items-center">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <div>&nbsp;tach@gmail.com</div>
+              </li>
+              <li class="small d-flex align-items-center">
+                <i class="fa-solid fa-phone"></i>
+                <div>&nbsp;0235126789</div>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5 class="text-white mb-3">Theo dõi Tách</h5>
+            <ul class="list-unstyled text-muted">
+              <li class="d-inline p-1">
+                <i class="fab fa-facebook-f fa-2xl"></i>
+              </li>
+              <li class="d-inline p-1">
+                <i class="fab fa-instagram fa-2xl"></i>
+              </li>
+              <li class="d-inline p-1">
+                <i class="fa-brands fa-youtube fa-2xl"></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="mt-5 pt-4 border-top bg-dark">
+        <div class="col-md-6 col-lg-8 text-center" style="margin: auto">
+          <p class="small text-muted mb-0 copyright">&copy; Bản quyền. <a class="text-primary" href="#">Đồ án môn Web2 của Nhóm 2</a></p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

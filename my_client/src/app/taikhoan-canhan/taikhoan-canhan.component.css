@@ -1,0 +1,20 @@
+.button-mr {
+  margin-right: 25px !important;
+}
+@media only screen and (max-width: 600px) {
+  .next-sidebar-title1 {
+    width: 35% !important;
+  }
+  .next-sidebar-title2 {
+    width: 55% !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  .next-sidebar {
+    width: 100% !important;
+  }
+}

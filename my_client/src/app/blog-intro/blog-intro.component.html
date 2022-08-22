@@ -1,0 +1,86 @@
+<div class="bg-dark">
+    <div class="container-fluid">
+      <hr class="text-white my-1" />
+      <div class="text-white fs-5 d-flex justify-content-around">
+        <div class="py-3" style="cursor: pointer">Giới thiệu</div>
+        <div class="h3 py-3">Tách Blog</div>
+        <div class="py-3" (click)="chuyentach()" style="cursor: pointer">Chuyện của Tách</div>
+      </div>
+      <hr class="text-white my-1" />
+      <div class="row container-fluid mt-5 blog__gt--container">
+        <div class="col-lg-8 bg-white text-dark blog__gt--left py-4 container-fluid">
+          <h2 class="text-center fw-bold">GIỚI THIỆU</h2>
+          <div class="text-center">
+            <img
+              src="http://localhost:3000/blogintro.png"
+              alt="" class="blog__img--1"
+            />
+          </div>
+          <p class="m-3">
+            Tách là một Studio chuyên nghiệp cung cấp các dịch vụ chụp ảnh, cho
+            thuê máy ảnh, trang phục và các loại phụ kiện khác đi kèm. Được thành
+            lập từ năm 2018, trải qua một thời gian hoạt động Tách luôn tự hào với
+            đội ngũ phorographer, editor chuyên nghiệp, có tay nghề cao, chụp được
+            đa dạng các thể loại phong cách, background và cho mọi lứa tuối. Đến
+            với Tách, khách hàng sẽ được đảm bảo có những trải nghiệm tuyệt và
+            cùng với Studio mang lại những bức ảnh đẹp.
+          </p>
+  
+          <li class="m-4">
+            Độc đáo với Ekip chuyên nghiệp và có tinh thần sáng tạo cao, chắc chắn
+            Tách Studio sẽ mang tới cho các bạn nhiều concept chụp ảnh “Độc – Lạ”.
+            Bởi vậy, tấm ảnh của bạn chắc chắn sẽ nổi bật, đáng nhớ và thu hút
+            giữa một “rừng” kiểu ảnh hiện nay.
+          </li>
+  
+          <li class="m-4">
+            Sản phẩm Đẹp hệ thống máy móc, trang thiết bị hiện đại và đồng bộ,
+            những tấm ảnh của bạn không chỉ độc về concept ảnh mà còn đẹp về chất
+            lượng ảnh, màu sắc và ánh sáng. Là Studio uy tín tại TP.Hồ Chí Minh,
+            Tách cam kết sẽ mang đến những tấm hình chụp ảnh chất nhất, độc lạ và
+            đẹp nhất, cùng đó còn một ekip chụp hình cực kì chuyên nghiệp, sáng
+            tạo & rất vui tính, giúp bạn lưu lại những khoảnh khắc ý nghĩa cùng
+            gia đình, vui vẻ bên bạn bè trong những shoot hình hoàn hảo nhất!
+          </li>
+  
+          <li class="m-4">
+            Rẻ - trọn gói tại Tách Studio cam kết giá hợp lý nhất toàn Miền Nam.
+            Do vậy, các bạn học sinh, sinh viên hoàn toàn có thể yên tâm tin tưởng
+            ở chúng tôi và cùng đồng hành để tạo thành một album ảnh tuyệt vời.
+            Tách luôn nỗ lực xây dựng những buổi chụp ảnh kỷ yếu nhiều tương tác
+            giữa các thành viên bằng các trò chơi tập thể vui nhộn. Bên cạnh đó,
+            sự dí dỏm, nhanh chí của các Photographer cũng giúp buổi chụp ảnh giảm
+            bớt căng thẳng, gượng gạo. Từ đó, các bạn sẽ tự tin hơn khi đứng trước
+            ống kính máy ảnh, tự do và thoải mái tạo hình.
+          </li>
+          <h2 class="text-center mb-3 fw-bold">THÔNG TIN LIÊN HỆ</h2>
+          <div class="d-flex mx-5 blog__gt--attact">
+            <a href="https://map.coccoc.com/map/388615369580875" target="_blank" class="blog__gt--img"
+              ><img
+                src="http://localhost:3000/map.png"
+                alt="" class="blog--img"
+            /></a>
+            <div class="blog__gt--info">
+              <div>
+                <span class="fw-bold">Địa chỉ:</span> 669 Quốc lộ 1, Khu phố 3,<br />
+                Phường Linh Xuân, Quận Thủ Đức, thành phố Hồ Chí Minh
+              </div>
+              <div><span class="fw-bold">Số điện thoại:</span> 0321668138</div>
+              <div><span class="fw-bold">Email:</span> tachstudio@gmail.com</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 bg-white text-dark py-4 blog__gt--right container-fluid">
+          <div class="bg-dark text-white text-center blog__right--newpost position-absolute">
+            BÀI VIẾT MỚI NHẤT
+          </div>
+          <div class="border border-dark blog__gt--border px-3 py-5 position-relative m-3">
+            <div  *ngFor="let b of blogs | slice: 0:3">
+              <div (click)="chitiet(b)" style="cursor: pointer">{{ b.blogTitle }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,237 @@
+<div class="container p-5">
+  <div class="p-3 shadow-sm mb-5 bg-white rounded min-vh-100">
+    <div
+      class="rounded text-center fw-bold text-white p-3 mb-3"
+      style="background-color: #f2c806"
+    >
+      <div>THÊM STUDIO</div>
+    </div>
+    <form [formGroup]="regForm" (ngSubmit)="submitData(regForm.value)">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="productName" class="mb-2"
+            >1. Tên studio <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            placeholder="Tên studio"
+            required
+            id="productName"
+            class="form-control"
+            name="productName"
+            formControlName="productName"
+            [ngClass]="{
+              'is-invalid': f['productName'].errors && f['productName'].touched
+            }"
+          />
+          <div *ngIf="f['productName'].errors && f['productName'].touched">
+            <small
+              class="text-danger"
+              *ngIf="f['productName'].errors?.['required']"
+              >Tên studio không được để trống</small
+            ><br />
+            <small
+              class="text-danger"
+              *ngIf="f['productName'].errors?.['minlength']"
+              >Tên studio phải có tối thiểu 4 ký tự</small
+            ><br />
+            <small
+              class="text-danger"
+              *ngIf="f['productName'].errors?.['nameNotMatch']"
+              >Tên studio không được chứa ký tự đặc biệt</small
+            >
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="unitPrice" class="mb-2"
+            >2. Giá studio <span class="text-danger">*</span></label
+          >
+          <input
+            type="number"
+            placeholder="Giá studio"
+            required
+            id="unitPrice"
+            class="form-control"
+            name="unitPrice"
+            formControlName="unitPrice"
+            [ngClass]="{
+              'is-invalid': f['unitPrice'].errors && f['unitPrice'].touched
+            }"
+          />
+          <div *ngIf="f['unitPrice'].errors && f['unitPrice'].touched">
+            <small
+              class="text-danger"
+              *ngIf="f['unitPrice'].errors?.['required']"
+              >Giá studio không được để trống</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="mb-2" for="style"
+            >3. Phong cách <span class="text-danger">*</span></label
+          >
+          <select
+            class="form-control"
+            id="style"
+            name="style"
+            required
+            formControlName="style"
+            [ngClass]="{
+              'is-invalid': f['style'].errors && f['style'].touched
+            }"
+          >
+            <option>Vintage</option>
+            <option>Hiện đại</option>
+            <option>Thiên nhiên</option>
+            <option>Hoàng gia</option>
+            <option>Đường phố</option>
+            <option>Tối giản</option>
+            <option>Nghệ thuật</option>
+          </select>
+          <div *ngIf="f['style'].invalid && f['style'].touched">
+            <small class="text-danger" *ngIf="f['style'].errors?.['required']"
+              >Phong cách không được để trống</small
+            >
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label class="mb-2"
+            >4. Album phù hợp <span class="text-danger">*</span></label
+          >
+          <select
+            class="form-control"
+            id="album"
+            name="album"
+            required
+            formControlName="album"
+            [ngClass]="{
+              'is-invalid': f['album'].errors && f['album'].touched
+            }"
+          >
+            <option>Ảnh cưới</option>
+            <option>Ảnh nghệ thuật</option>
+            <option>Ảnh bé yêu</option>
+            <option>Ảnh chân dung</option>
+            <option>Ảnh kỷ yếu</option>
+            <option>Ảnh bầu</option>
+            <option>Ảnh sản phẩm</option>
+            <option>Ảnh gia đinh</option>
+            <option>Ảnh cặp đôi</option>
+          </select>
+          <div *ngIf="f['album'].invalid && f['album'].touched">
+            <small class="text-danger" *ngIf="f['album'].errors?.['required']"
+              >Album không được để trống</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label mb-1"
+          >5. Thêm ảnh của studio <span class="text-danger">*</span></label
+        >
+        <div class="mb-2">
+          <i>Ảnh 1, 2, 3: Ảnh của studio; Ảnh 4: Thông số kỹ thuật </i>
+        </div>
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <small>5.1. Ảnh 1</small>
+            <input
+              type="file"
+              id="imgProduct1"
+              class="form-control"
+              formControlName="imgProduct1"
+              name="imgProduct1"
+              (change)="onSelectFile1($event)"
+            />
+          </div>
+          <div class="col-md-6">
+            <small>5.2. Ảnh 2</small>
+            <input
+              type="file"
+              id="imgProduct2"
+              class="form-control"
+              name="imgProduct2"
+              formControlName="imgProduct2"
+              (change)="onSelectFile2($event)"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <small>5.3. Ảnh 3</small>
+            <input
+              type="file"
+              id="imgProduct3"
+              class="form-control"
+              name="imgProduct3"
+              formControlName="imgProduct3"
+              (change)="onSelectFile3($event)"
+            />
+          </div>
+          <div class="col-md-6">
+            <small>5.4. Ảnh 4</small>
+            <input
+              type="file"
+              id="imgProduct4"
+              class="form-control"
+              name="imgProduct4"
+              formControlName="imgProduct4"
+              (change)="onSelectFile4($event)"
+            />
+          </div>
+        </div>
+      </div>
+      <div>
+        <label for="productDescription" class="mb-2"
+          >6. Mô tả studio <span class="text-danger">*</span></label
+        >
+        <textarea
+          class="form-control"
+          rows="6"
+          required
+          id="productDescription"
+          name="productDescription"
+          formControlName="productDescription"
+          [ngClass]="{
+            'is-invalid':
+              f['productDescription'].errors && f['productDescription'].touched
+          }"
+        >
+        </textarea>
+        <div
+          *ngIf="
+            f['productDescription'].invalid && f['productDescription'].touched
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="f['productDescription'].errors?.['required']"
+            >Mô tả studio không được để trống</small
+          >
+          <small
+            class="text-danger"
+            *ngIf="f['productDescription'].errors?.['minlength']"
+            >Mô tả phải có tối thiểu 50 ký tự</small
+          >
+        </div>
+      </div>
+      <div class="text-center mt-3">
+        <button
+          class="btn btn-warning text-white"
+          type="submit"
+          [disabled]="
+            regForm.invalid ||
+            !imgProduct1 ||
+            !imgProduct2 ||
+            !imgProduct3 ||
+            !imgProduct4
+          "
+        >
+          Thêm sản phẩm
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

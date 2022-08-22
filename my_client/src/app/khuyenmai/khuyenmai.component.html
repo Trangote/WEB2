@@ -1,0 +1,97 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3 mt-3">
+    <div
+      class="shadow-sm p-3 mb-5 bg-white rounded sidebar"
+      style="height: 600px"
+    >
+      <div class="mt-2 row justify-content-left align-items-center">
+        <div class="col-4">
+          <img
+            src="http://localhost:3000/{{avatar}}"
+            class="rounded-circle"
+            style="height: 60px; width: 60px"
+          />
+        </div>
+        <div class="fw-bold col-3">{{ user.userName }}</div>
+      </div>
+      <hr style="color: black; height: 1px; width: 95%" />
+      <div>
+        <div class="d-flex align-items-center khuyenmai-sidebar rounded p-2" (click)="myAccount()">
+          <i class="fa-solid fa-user"></i>
+          <div>&nbsp; Tài khoản của tôi</div>
+        </div>
+      </div>
+      <div>
+        <div class="d-flex align-items-center khuyenmai-sidebar rounded p-2" (click)="datthue()">
+          <i class="fa fa-shopping-cart"></i>
+          <div>&nbsp; Đơn đặt thuê</div>
+        </div>
+      </div>
+      <div>
+        <div class="d-flex align-items-center khuyenmai-sidebar rounded p-2" (click)="thongbao()">
+          <i class="fa-solid fa-bell"></i>
+          <div>&nbsp; Thông báo</div>
+        </div>
+      </div>
+      <div>
+        <div class="d-flex align-items-center khuyenmai-sidebar rounded p-2" (click)="khuyenmai1()">
+          <i class="fa fa-tag fa-lg"></i>
+          <div>&nbsp; Khuyến mãi</div>
+        </div>
+      </div>
+      <div>
+        <div class="d-flex align-items-center khuyenmai-sidebar rounded p-2" (click)="logOut()">
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+          <div>&nbsp; Đăng xuất</div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="col-9 ml-2 mt-3">
+      <div
+        class="bg-dark text-white p-3 rounded fw-bold d-flex justify-content-between"
+      >
+        <div class="">VÍ KHUYẾN MÃI</div>
+        <div class="text-end">
+          Điểm tích lũy: {{ user.userPoint }}<span></span>
+        </div>
+      </div>
+      <div class="shadow-sm p-3 bg-white rounded mt-2 pb-5">
+        <div class="row justify-content-around khuyenmai">
+          <div
+            class="col-6 shadow-sm mb-1 bg-white row rounded khuyenmai-1"
+            *ngFor="let p of khuyenmais"
+          >
+            <div class="bg-info text-white fw-bold col-4 rounded text-center">
+              <div class="mt-5">MIỄN PHÍ VẬN CHUYỂN</div>
+            </div>
+            <div class="col-8">
+              <div class="text-danger text-end mb-1" style="cursor: pointer;">
+                <div (click)="doiDiemKhuyenMai(p._id)">
+                  Đổi điểm
+                  <i class="fa-solid fa-angle-right"></i>
+                </div>
+              </div>
+              <div class="mb-1">
+                Voucher khuyến mãi giảm {{ p.voucherPrice }} %
+              </div>
+              <div
+                class="d-flex mb-1 justify-content-around align-items-center"
+              >
+                <div class="border border-danger rounded p-1">
+                  Giảm {{ p.voucherPrice }} %
+                </div>
+                <div class="">{{ p.voucherPoint }} điểm</div>
+              </div>
+              <div class="mb-1">Hạn sử dụng: {{ p.expiry }}</div>
+              <div class="mb-1" style="cursor: pointer">
+                <div class="text-end text-primary" (click)="dieukienkhuyenmai(p)">Điều kiện</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

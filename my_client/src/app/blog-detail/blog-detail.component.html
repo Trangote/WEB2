@@ -1,0 +1,39 @@
+<div class="bg-dark container-fluid pb-3">
+  <hr class="text-white my-1 blog__detail--hr" />
+  <div class="text-white fs-5 d-flex justify-content-around">
+    <div class="py-3" (click)="blogintro()" style="cursor: pointer">Giới thiệu</div>
+    <div class="h3 py-3">Tách Blog</div>
+    <div class="py-3" (click)="chuyentach()" style="cursor: pointer">Chuyện của Tách</div>
+  </div>
+  <hr class="text-white my-1" />
+  <div class="d-flex mt-5 blog__detail--container container-fluid">
+    <div
+      class="col-lg-8 bg-white text-dark container-fluid rounded py-4 blog__detail--left"
+      *ngFor="let p of blogs"
+    >
+      <h2 class="text-center">{{ blog.blogTitle }}</h2>
+      <h3 class="text-center">{{ blog.timeUpload }}, {{ blog.adminName }}</h3>
+      <div class="text-center">
+        <img class="w-75 mb-3" src="{{ blog.imgblog }}" />
+      </div>
+      <div>{{ blog.blogDescription }}</div>
+      <div
+        class="col-lg-3 bg-white text-dark container-fluid py-4 blog__detail--right"
+      ></div>
+    </div>
+    <div class="row">
+      <div class="bg-white text-dark py-4 blog__detail--right mt-2 rounded">
+        <div
+          class="bg-dark text-white text-center blog__right--newpost position-absolute"
+        >
+          BÀI VIẾT MỚI NHẤT
+        </div>
+        <div class="border border-dark m-2 px-3 py-5">
+          <div *ngFor="let b of blogs1 | slice: 0:3">
+            <div (click)="chitiet(b)" style="cursor: pointer">{{ b.blogTitle }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

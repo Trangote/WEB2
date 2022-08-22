@@ -1,0 +1,52 @@
+<div class="container khuyenmai-container bg-white">
+  <div class="d-flex mt-5">
+    <div class="bg-primary text-white fw-bold col-4 rounded text-center">
+      <div class="mt-3">MIỄN PHÍ VẬN CHUYỂN</div>
+    </div>
+    <div class="col-8 ms-3">
+      <div class="mb-1">
+        Voucher khuyến mãi giảm {{ khuyenmai.voucherPrice }} %
+      </div>
+      <div class="d-flex mb-1 justify-content-around align-items-center">
+        <div class="border border-danger rounded p-1 text-danger">
+          Giảm {{ khuyenmai.voucherPrice }} %
+        </div>
+        <div class="">{{ khuyenmai.voucherPoint }} điểm</div>
+      </div>
+      <div class="mb-1 text-secondary">Hạn sử dụng: {{ khuyenmai.expiry }}</div>
+    </div>
+  </div>
+  <div class="text-dark">
+    <h5 class="mb-2 fw-bold">Ưu đãi</h5>
+    <p>
+      Lượt sử dụng có hạn. Nhanh tay kẻo lỡ bạn nhé. Ưu đãi miễn phí vận chuyển
+      tối đa 50k cho hình thức thanh toán chuyển khoản.
+    </p>
+    <h5 class="mb-2 fw-bold">Có hiệu lực</h5>
+    <p>25/10/2021 - {{ khuyenmai.expiry }}</p>
+    <h5 class="mb-2 fw-bold">Sản phẩm</h5>
+    <p>Áp dụng cho tất cả sản phẩm hiện có trên trang Web của Tách</p>
+    <h5 class="mb-2 fw-bold">Xem chi tiết</h5>
+    <p>
+      Mã {{ khuyenmai.voucherID }} giảm tối đa 50k cho phí vận chuyển đơn hàng
+      mua trên Website của Tách. Số lượng mã có hạn. Chỉ áp dụng cho khách hàng
+      nhận được Voucher. Mỗi khách hàng chỉ được dùng một lần. Voucher có hiệu
+      lực đến
+      {{ khuyenmai.expiry }}
+    </p>
+    <div class="text-center">
+      <button
+        class="btn btn-white text-dark fw-bold me-3 text-center border-secondary"
+        (click)="huykhuyenmai()"
+      >
+        Huỷ
+      </button>
+      <button
+        class="btn btn-dark text-center text-white fw-bold" [disabled]="isDisable"
+        (click)="doivoucher()"
+      >
+        Đổi điểm
+      </button>
+    </div>
+  </div>
+</div>
